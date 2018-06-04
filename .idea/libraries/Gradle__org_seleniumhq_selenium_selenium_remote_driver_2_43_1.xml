@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.seleniumhq.selenium:selenium-remote-driver:2.43.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-remote-driver/2.43.1/2db8c920122751a6b94818bdf819fe7c30199bfa/selenium-remote-driver-2.43.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-remote-driver/2.43.1/6b2cbcc32e218e2924c1d298d1f4ce7fe89de98e/selenium-remote-driver-2.43.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Scenario: Login scenario" tests="2" skipped="1" failures="0" errors="0" timestamp="2018-05-27T14:58:53" hostname="INsrinuk.local" time="0.004">
+  <properties/>
+  <testcase name="Given I am a user" classname="Scenario: Login scenario" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login scenario" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

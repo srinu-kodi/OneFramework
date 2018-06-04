@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Scenario: Login Scenario" tests="28" skipped="7" failures="0" errors="0" timestamp="2018-05-30T17:49:25" hostname="INsrinuk.local" time="27.322">
+  <properties/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="0.006"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="0.002"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="0.001"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="0.001"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="0.001"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="0.002"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="0.001"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="2.515"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="4.014"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="6.084"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="3.263"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="3.653"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="2.741"/>
+  <testcase name="Given I am a guest user" classname="Scenario: Login Scenario" time="0.0"/>
+  <testcase name="classMethod" classname="Scenario: Login Scenario" time="4.99"/>
+  <system-out><![CDATA[
+  @android
+  Scenario: Login Scenario  ?[90m# Login.feature:4?[0m
+    ?[33mGiven ?[0m?[33mI am a guest user?[0m
+
+  @android
+  Scenario: Login Scenario  ?[90m# Login.feature:8?[0m
+    ?[33mGiven ?[0m?[33mI am a guest user?[0m
+
+  @android
+  Scenario: Login Scenario  ?[90m# Login.feature:12?[0m
+    ?[33mGiven ?[0m?[33mI am a guest user?[0m
+
+  @android
+  Scenario: Login Scenario  ?[90m# Login.feature:16?[0m
+    ?[33mGiven ?[0m?[33mI am a guest user?[0m
+
+  @android
+  Scenario: Login Scenario  ?[90m# Login.feature:20?[0m
+    ?[33mGiven ?[0m?[33mI am a guest user?[0m
+
+  @android
+  Scenario: Login Scenario  ?[90m# Login.feature:24?[0m
+    ?[33mGiven ?[0m?[33mI am a guest user?[0m
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8) on port 6098
+Only local connections are allowed.
+Starting ChromeDriver 2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8) on port 24785
+Only local connections are allowed.
+Starting ChromeDriver 2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8) on port 19170
+Only local connections are allowed.
+Starting ChromeDriver 2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8) on port 24161
+Only local connections are allowed.
+Starting ChromeDriver 2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8) on port 18025
+Only local connections are allowed.
+Starting ChromeDriver 2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8) on port 44183
+Only local connections are allowed.
+Starting ChromeDriver 2.36.540469 (1881fd7f8641508feb5166b7cae561d87723cfa8) on port 26355
+Only local connections are allowed.
+]]></system-err>
+</testsuite>
