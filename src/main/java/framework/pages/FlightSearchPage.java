@@ -1,16 +1,15 @@
 package framework.pages;
 
-import framework.core.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class HomePage {
+public class FlightSearchPage {
 
     WebDriver driver;
-    public HomePage() {
-        PageFactory.initElements(driver, HomePage.class);
+    public FlightSearchPage() {
+        PageFactory.initElements(driver, FlightSearchPage.class);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
     }
 }

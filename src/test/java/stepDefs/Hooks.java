@@ -13,6 +13,8 @@ public class Hooks {
     IOSDriver iosDriver;
     WebDriver webDriver;
 
+    //String strOS = System.getenv("os.name");
+
     @Before
     public void beforeClass() {
         System.out.println("Initializing the driver instance");
@@ -31,6 +33,9 @@ public class Hooks {
     @Before({"@web", "~@android", "~@ios", "~@ignore"})
     public void beforeWebTestsRun() {
         System.out.println("Running the web test scenarios");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/dependency/chromedriver_mac");
+        webDriver = new ChromeDriver();
+        webDriver.get("https://www.copaair.com/en/web/us");
     }
 
     @After({"@android", "~@web", "~@ios", "~@ignore"})
@@ -45,6 +50,7 @@ public class Hooks {
 
     @After({"@web", "~@android", "~@ios", "~@ignore"})
     public void afterWebTestsRun() {
+        webDriver.quit();
         System.out.println("Closing the web session");
     }
 

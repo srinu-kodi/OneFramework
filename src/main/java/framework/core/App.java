@@ -1,13 +1,13 @@
 package framework.core;
 
-import framework.pages.HomePage;
+import framework.pages.FlightSearchPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class App {
-    public HomePage launch() {
+    public FlightSearchPage launch() {
         WebDriver driver = new FirefoxDriver();
         driver.get("https://www.google.com");
-        return new HomePage();
+        return new FlightSearchPage();
     }
 }
