@@ -1,14 +1,18 @@
 package stepDefs;
 
+import cucumber.api.DataTable;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.junit.Assert;
 
 public class HomePageSteps {
+    @And("^Search for \"([^\"]*)\" journey with below criteria$")
+    public void searchForUserJourney(String journeyType, DataTable searchCriteriaTable) throws Throwable {
 
-    @Given("^User launches the application$")
-    public void launchApplication(){
+    }
+
+    @Given("^User chooses \"([^\"]*)\" option$")
+    public void userChoosesOption(String option) throws Throwable {
 
     }
 }

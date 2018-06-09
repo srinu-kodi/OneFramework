@@ -16,7 +16,7 @@ formatter.scenario({
   "tags": [
     {
       "line": 3,
-      "name": "@android"
+      "name": "@android @ignore"
     }
   ]
 });
@@ -57,7 +57,7 @@ formatter.scenario({
   "tags": [
     {
       "line": 9,
-      "name": "@android"
+      "name": "@android @ignore"
     }
   ]
 });

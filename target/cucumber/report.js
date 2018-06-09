@@ -7,85 +7,47 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 158267,
+  "duration": 158924,
   "status": "passed"
 });
 formatter.before({
-  "duration": 8736178069,
+  "duration": 13341469146,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 12,
-  "name": "Copa Airlines homepage scenario",
+  "line": 9,
+  "name": "Copa Airlines Login option scenario",
   "description": "",
-  "id": "copa-airlines-homepage-feature-validation;copa-airlines-homepage-scenario",
+  "id": "copa-airlines-homepage-feature-validation;copa-airlines-login-option-scenario",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 11,
+      "line": 8,
       "name": "@web"
     }
   ]
 });
 formatter.step({
-  "line": 13,
-  "name": "Application is launched",
+  "line": 10,
+  "name": "User chooses \"Login\" option",
   "keyword": "Given "
-});
-formatter.step({
-  "line": 14,
-  "name": "Search for \"round-trip\" journey with below criteria",
-  "rows": [
-    {
-      "cells": [
-        "From",
-        "To",
-        "Departure",
-        "Return",
-        "Adult",
-        "Child",
-        "ClassType"
-      ],
-      "line": 15
-    },
-    {
-      "cells": [
-        "\"Orlando\"",
-        "\"Panama\"",
-        "\"July 15, 2018\"",
-        "\"July 25, 2018\"",
-        "1",
-        "1",
-        "\"Business\""
-      ],
-      "line": 16
-    }
-  ],
-  "keyword": "And "
-});
-formatter.match({
-  "location": "HomePageSteps.launchApplication()"
-});
-formatter.result({
-  "duration": 70373684,
-  "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "round-trip",
-      "offset": 12
+      "val": "Login",
+      "offset": 14
     }
   ],
-  "location": "SearchPageSteps.searchForUserJourney(String,DataTable)"
+  "location": "HomePageSteps.userChoosesOption(String)"
 });
 formatter.result({
-  "duration": 2245840,
+  "duration": 73362487,
   "status": "passed"
 });
 formatter.after({
-  "duration": 579306170,
+  "duration": 95894507,
   "status": "passed"
 });
 });
