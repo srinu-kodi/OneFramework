@@ -1,5 +1,8 @@
 .idea/workspace.xml
 .idea/vcs.xml
-.idea/libraries
-.idea/modules
+.idea/libraries/
+.idea/modules/
 .gradle/
+.idea/libraries/
+.idea/modules/Automation_main.iml
+.idea/modules/Automation_test.iml
