@@ -4,6 +4,7 @@ import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import framework.pages.FlightSearchPage;
 
 public class HomePageSteps {
     @And("^Search for \"([^\"]*)\" journey with below criteria$")
@@ -13,6 +14,6 @@ public class HomePageSteps {
 
     @Given("^User chooses \"([^\"]*)\" option$")
     public void userChoosesOption(String option) throws Throwable {
-
+        new FlightSearchPage().clickButton();
     }
 }

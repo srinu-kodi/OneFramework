@@ -6,3 +6,4 @@
 .idea/libraries/
 .idea/modules/Automation_main.iml
 .idea/modules/Automation_test.iml
+target/cucumber/report.js

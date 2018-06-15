@@ -10,7 +10,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.IOException;
-import java.security.SecureRandom;
 
 public class AppiumServer {
 

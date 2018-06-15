@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -46,7 +47,15 @@ public class DriverManager {
             androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), androidCapabilities);
             WebDriverWait androidWait = new WebDriverWait(androidDriver, 30);
         } else if (driverType.equals("ios")) {
-
+            DesiredCapabilities iosCapabilities = new DesiredCapabilities();
+            iosCapabilities.setCapability("deviceName", "iPhone 5s");
+            iosCapabilities.setCapability("platformName", "iOS");
+            iosCapabilities.setCapability("platformVersion", "9.3");
+            iosCapabilities.setCapability("automationName", "XCUITest");
+            iosCapabilities.setCapability("udid", "1A6EFAF6-8A79-4206-9567-CCF107ACDDA5");
+            iosCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/Delta.app");
+            iosDriver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
+            WebDriverWait iOSWait = new WebDriverWait(iosDriver, 30);
         } else {
             System.out.println("Unable to set driver type");
         }
