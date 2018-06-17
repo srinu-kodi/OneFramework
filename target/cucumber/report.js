@@ -1,35 +1,35 @@
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("HomePage.feature");
 formatter.feature({
   "line": 1,
-  "name": "Copa Airlines homepage feature validation",
+  "name": "Wordpress Homepage Feature",
   "description": "",
-  "id": "copa-airlines-homepage-feature-validation",
+  "id": "wordpress-homepage-feature",
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 158924,
+  "duration": 104160,
   "status": "passed"
 });
 formatter.before({
-  "duration": 13341469146,
+  "duration": 17751414079,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 9,
-  "name": "Copa Airlines Login option scenario",
+  "line": 4,
+  "name": "Wordpress Homepage Login feature scenario",
   "description": "",
-  "id": "copa-airlines-homepage-feature-validation;copa-airlines-login-option-scenario",
+  "id": "wordpress-homepage-feature;wordpress-homepage-login-feature-scenario",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
     {
-      "line": 8,
-      "name": "@web"
+      "line": 3,
+      "name": "@android"
     }
   ]
 });
 formatter.step({
-  "line": 10,
+  "line": 5,
   "name": "User chooses \"Login\" option",
   "keyword": "Given "
 });
@@ -43,11 +43,55 @@ formatter.match({
   "location": "HomePageSteps.userChoosesOption(String)"
 });
 formatter.result({
-  "duration": 73362487,
+  "duration": 707047783,
   "status": "passed"
 });
 formatter.after({
-  "duration": 95894507,
+  "duration": 110314009,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 49656,
+  "status": "passed"
+});
+formatter.before({
+  "duration": 16601169138,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 8,
+  "name": "Wordpress Homepage Login feature scenario",
+  "description": "",
+  "id": "wordpress-homepage-feature;wordpress-homepage-login-feature-scenario",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 7,
+      "name": "@android"
+    }
+  ]
+});
+formatter.step({
+  "line": 9,
+  "name": "User chooses \"Signup\" option",
+  "keyword": "Given "
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Signup",
+      "offset": 14
+    }
+  ],
+  "location": "HomePageSteps.userChoosesOption(String)"
+});
+formatter.result({
+  "duration": 910233297,
+  "status": "passed"
+});
+formatter.after({
+  "duration": 107518152,
   "status": "passed"
 });
 });

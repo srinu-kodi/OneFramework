@@ -1,19 +1,17 @@
 package stepDefs;
 
-import cucumber.api.DataTable;
-import cucumber.api.PendingException;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import framework.pages.FlightSearchPage;
+import framework.pages.HomePage;
 
 public class HomePageSteps {
-    @And("^Search for \"([^\"]*)\" journey with below criteria$")
-    public void searchForUserJourney(String journeyType, DataTable searchCriteriaTable) throws Throwable {
-
-    }
 
     @Given("^User chooses \"([^\"]*)\" option$")
     public void userChoosesOption(String option) throws Throwable {
-        new FlightSearchPage().clickButton();
+        if(option.toLowerCase().equals("login")) {
+            new HomePage().clickLoginButton();
+        }
+        else if(option.toLowerCase().equals("signup")) {
+            new HomePage().clickSignupButton();
+        }
     }
 }

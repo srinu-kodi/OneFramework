@@ -1,7 +1,10 @@
 package framework.core;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -13,49 +16,36 @@ import java.net.URL;
 
 public class DriverManager {
 
-    static AndroidDriver androidDriver;
-    static IOSDriver iosDriver;
-    static WebDriver webDriver;
+    static AppiumDriver driver;
 
     public static String driverType;
 
-    public static WebDriver getWebDriver() {
-        return webDriver;
-    }
-
-    public static AndroidDriver getAndroidDriver() {
-        return androidDriver;
-    }
-
-    public static IOSDriver getIOSDriver() {
-        return iosDriver;
+    public static AppiumDriver getDriver() {
+        return driver;
     }
 
     public static void startAUT() throws MalformedURLException {
-        if (driverType.equals("web")) {
-            System.out.println("webdriver will start now");
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/dependency/chromedriver_mac");
-            webDriver = new ChromeDriver();
-            DriverManager.webDriver = webDriver;
-            webDriver.get("https://www.copaair.com/en/web/us");
-        } else if (driverType.equals("android")) {
+        if (driverType.equals("android")) {
             DesiredCapabilities androidCapabilities = new DesiredCapabilities();
-            androidCapabilities.setCapability("deviceName", "Pixel");
+            androidCapabilities.setCapability("deviceName", "emulator-5554");
             androidCapabilities.setCapability("device", "Android");
             androidCapabilities.setCapability("platformName", "Android");
-            androidCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/CopaAirlines.apk");
-            androidDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), androidCapabilities);
-            WebDriverWait androidWait = new WebDriverWait(androidDriver, 30);
+            androidCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/WordPress.apk");
+            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "org.wordpress.android");
+            androidCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
+            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "org.wordpress.android.ui.WPLaunchActivity");
+            driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), androidCapabilities);
+            WebDriverWait androidWait = new WebDriverWait(driver, 30);
         } else if (driverType.equals("ios")) {
             DesiredCapabilities iosCapabilities = new DesiredCapabilities();
-            iosCapabilities.setCapability("deviceName", "iPhone 5s");
+            iosCapabilities.setCapability("deviceName", "iPhone 8");
             iosCapabilities.setCapability("platformName", "iOS");
-            iosCapabilities.setCapability("platformVersion", "9.3");
+            iosCapabilities.setCapability("platformVersion", "11.0");
             iosCapabilities.setCapability("automationName", "XCUITest");
-            iosCapabilities.setCapability("udid", "1A6EFAF6-8A79-4206-9567-CCF107ACDDA5");
-            iosCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/Delta.app");
-            iosDriver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
-            WebDriverWait iOSWait = new WebDriverWait(iosDriver, 30);
+            iosCapabilities.setCapability("udid", "65D41497-6506-41C3-9644-EC166EEA2159");
+            iosCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/WordPress.app");
+            driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
+            WebDriverWait iOSWait = new WebDriverWait(driver, 30);
         } else {
             System.out.println("Unable to set driver type");
         }

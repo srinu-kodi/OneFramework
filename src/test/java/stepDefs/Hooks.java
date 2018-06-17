@@ -62,6 +62,6 @@ public class Hooks {
     @After({"@web", "~@android", "~@ios", "~@ignore"})
     public void afterWebTestsRun() {
         System.out.println("Closing the web session");
-        DriverManager.getWebDriver().quit();
+        DriverManager.getDriver().quit();
     }
 }
