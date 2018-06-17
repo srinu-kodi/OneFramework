@@ -1,11 +1,10 @@
 package framework.core;
 
-import io.appium.java_client.AppiumDriver;
 import java.util.HashMap;
 
 public class PageActions extends Locator {
-    static AppiumDriver driver;
-    public PageActions(AppiumDriver driver) {
+
+    public PageActions() {
         super(driver);
     }
 

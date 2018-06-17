@@ -5,12 +5,8 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -40,7 +36,7 @@ public class DriverManager {
             DesiredCapabilities iosCapabilities = new DesiredCapabilities();
             iosCapabilities.setCapability("deviceName", "iPhone 8");
             iosCapabilities.setCapability("platformName", "iOS");
-            iosCapabilities.setCapability("platformVersion", "11.0");
+            iosCapabilities.setCapability("platformVersion", "11.4");
             iosCapabilities.setCapability("automationName", "XCUITest");
             iosCapabilities.setCapability("udid", "65D41497-6506-41C3-9644-EC166EEA2159");
             iosCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/WordPress.app");

@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class Locator {
 
-    AppiumDriver driver;
+    static AppiumDriver driver;
 
     public Locator(AppiumDriver driver) {
         this.driver = new DriverManager().getDriver();

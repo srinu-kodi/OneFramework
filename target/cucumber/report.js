@@ -7,18 +7,18 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 104160,
+  "duration": 257952,
   "status": "passed"
 });
 formatter.before({
-  "duration": 17751414079,
+  "duration": 17444623179,
   "status": "passed"
 });
 formatter.scenario({
   "line": 4,
-  "name": "Wordpress Homepage Login feature scenario",
+  "name": "Wordpress Homepage Login scenario",
   "description": "",
-  "id": "wordpress-homepage-feature;wordpress-homepage-login-feature-scenario",
+  "id": "wordpress-homepage-feature;wordpress-homepage-login-scenario",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
@@ -33,6 +33,11 @@ formatter.step({
   "name": "User chooses \"Login\" option",
   "keyword": "Given "
 });
+formatter.step({
+  "line": 6,
+  "name": "User should see page title as \"Log in to WordPress.com using an email address to manage all your WordPress sites.\"",
+  "keyword": "Then "
+});
 formatter.match({
   "arguments": [
     {
@@ -43,55 +48,24 @@ formatter.match({
   "location": "HomePageSteps.userChoosesOption(String)"
 });
 formatter.result({
-  "duration": 707047783,
+  "duration": 858279419,
   "status": "passed"
-});
-formatter.after({
-  "duration": 110314009,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 49656,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 16601169138,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 8,
-  "name": "Wordpress Homepage Login feature scenario",
-  "description": "",
-  "id": "wordpress-homepage-feature;wordpress-homepage-login-feature-scenario",
-  "type": "scenario",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "line": 7,
-      "name": "@android"
-    }
-  ]
-});
-formatter.step({
-  "line": 9,
-  "name": "User chooses \"Signup\" option",
-  "keyword": "Given "
 });
 formatter.match({
   "arguments": [
     {
-      "val": "Signup",
-      "offset": 14
+      "val": "Log in to WordPress.com using an email address to manage all your WordPress sites.",
+      "offset": 31
     }
   ],
-  "location": "HomePageSteps.userChoosesOption(String)"
+  "location": "LoginPageSteps.userShouldSeePageTitleAs(String)"
 });
 formatter.result({
-  "duration": 910233297,
+  "duration": 731944600,
   "status": "passed"
 });
 formatter.after({
-  "duration": 107518152,
+  "duration": 53533576,
   "status": "passed"
 });
 });
