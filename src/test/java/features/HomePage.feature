@@ -5,7 +5,7 @@ Feature: Wordpress Homepage Feature
     Given User chooses "Login" option
     Then User should see page title as "Log in to WordPress.com using an email address to manage all your WordPress sites."
 
-  @ios
+  @android
   Scenario: Wordpress Homepage Signup scenario
     Given User chooses "Signup" option
 
@@ -16,3 +16,4 @@ Feature: Wordpress Homepage Feature
   @ios
   Scenario: Wordpress Homepage Login scenario
     Given User chooses "Login" option
+    Then User should see page title as "Log in to WordPress.com using an email address to manage all your WordPress sites."
