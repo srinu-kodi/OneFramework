@@ -7,11 +7,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 257952,
+  "duration": 108202,
   "status": "passed"
 });
 formatter.before({
-  "duration": 17444623179,
+  "duration": 19386616355,
   "status": "passed"
 });
 formatter.scenario({
@@ -48,7 +48,7 @@ formatter.match({
   "location": "HomePageSteps.userChoosesOption(String)"
 });
 formatter.result({
-  "duration": 858279419,
+  "duration": 741258139,
   "status": "passed"
 });
 formatter.match({
@@ -61,11 +61,11 @@ formatter.match({
   "location": "LoginPageSteps.userShouldSeePageTitleAs(String)"
 });
 formatter.result({
-  "duration": 731944600,
+  "duration": 662340140,
   "status": "passed"
 });
 formatter.after({
-  "duration": 53533576,
+  "duration": 54874505,
   "status": "passed"
 });
 });

@@ -2,9 +2,9 @@ package framework.core;
 
 import java.util.HashMap;
 
-public class PageActions extends Locator {
+public class Page extends Locator {
 
-    public PageActions() {
+    public Page() {
         super(driver);
     }
 

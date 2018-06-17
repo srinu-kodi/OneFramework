@@ -1,9 +1,9 @@
 package framework.pages;
 
-import framework.core.PageActions;
+import framework.core.Page;
 import java.util.HashMap;
 
-public class HomePage extends PageActions {
+public class HomePage extends Page {
 
     HashMap<String, HashMap> locatorMap = new HashMap<>();
 
