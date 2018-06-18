@@ -1,5 +1,6 @@
 package framework.core;
 
+import framework.exceptionManager.LocatorNotSetException;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,7 +17,7 @@ public class Locator {
         this.driver = new DriverManager().getDriver();
     }
 
-    public WebElement getLocator(HashMap<String, HashMap> locatorMap) {
+    public WebElement getLocator(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
         WebElement webElement = null;
         HashMap<String, String> map = locatorMap.get(DriverManager.driverType);
         for (String key : map.keySet()) {
@@ -27,7 +28,7 @@ public class Locator {
         return webElement;
     }
 
-    public WebElement getLocatorByType(String key, String value) {
+    public WebElement getLocatorByType(String key, String value) throws LocatorNotSetException {
         WebElement we = null;
         switch (key) {
             case "id":
@@ -40,8 +41,7 @@ public class Locator {
                 we = driver.findElement(By.className(value));
                 break;
             default:
-                System.out.println("locator is not set for one of the platforms");
-                break;
+                throw new LocatorNotSetException();
         }
         return we;
     }

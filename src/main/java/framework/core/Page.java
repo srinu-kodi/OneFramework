@@ -1,5 +1,6 @@
 package framework.core;
 
+import framework.exceptionManager.LocatorNotSetException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,15 +12,15 @@ public class Page extends Locator {
 
     }
 
-    public void click(HashMap<String, HashMap> locatorMap) {
+    public void click(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
         getLocator(locatorMap).click();
     }
 
-    public void sendKeys(HashMap<String, HashMap> locatorMap, String value) {
+    public void sendKeys(HashMap<String, HashMap> locatorMap, String value) throws LocatorNotSetException {
         getLocator(locatorMap).sendKeys(value);
     }
 
-    public String getText(HashMap<String, HashMap> locatorMap) {
+    public String getText(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
         return getLocator(locatorMap).getText();
     }
 }

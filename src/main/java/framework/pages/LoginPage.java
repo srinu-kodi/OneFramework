@@ -1,6 +1,7 @@
 package framework.pages;
 
 import framework.core.Page;
+import framework.exceptionManager.LocatorNotSetException;
 
 import java.util.HashMap;
 
@@ -17,7 +18,7 @@ public class LoginPage extends Page {
         return locatorMap;
     }
 
-    public String getTitle() {
+    public String getTitle() throws LocatorNotSetException {
         return getText(elePageTitle());
     }
 }

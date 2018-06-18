@@ -1,6 +1,8 @@
 package framework.pages;
 
 import framework.core.Page;
+import framework.exceptionManager.LocatorNotSetException;
+
 import java.util.HashMap;
 
 public class HomePage extends Page {
@@ -23,12 +25,12 @@ public class HomePage extends Page {
         return locatorMap;
     }
 
-    public LoginPage clickLoginButton() {
+    public LoginPage clickLoginButton() throws LocatorNotSetException {
         click(eleLoginButton());
         return new LoginPage();
     }
 
-    public SignupPage clickSignupButton() {
+    public SignupPage clickSignupButton() throws LocatorNotSetException {
         click(eleSignupButton());
         return new SignupPage();
     }
