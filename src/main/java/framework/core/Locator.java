@@ -45,4 +45,9 @@ public class Locator {
         }
         return we;
     }
+
+    public boolean isElementDisplayed(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
+        WebElement webElement = getLocator(locatorMap);
+        return webElement.isDisplayed();
+    }
 }

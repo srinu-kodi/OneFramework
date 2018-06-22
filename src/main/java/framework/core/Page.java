@@ -23,4 +23,8 @@ public class Page extends Locator {
     public String getText(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
         return getLocator(locatorMap).getText();
     }
+
+    public boolean isElementPresent(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
+        return isElementDisplayed(locatorMap);
+    }
 }
