@@ -2,8 +2,6 @@ package runners;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import framework.core.DriverManager;
-import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 import stepDefs.Hooks;
 

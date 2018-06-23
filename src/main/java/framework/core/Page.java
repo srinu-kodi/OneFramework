@@ -1,8 +1,6 @@
 package framework.core;
 
 import framework.exceptionManager.LocatorNotSetException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.HashMap;
 

@@ -4,18 +4,8 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import framework.core.AppiumServer;
 import framework.core.DriverManager;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 public class Hooks {
 
