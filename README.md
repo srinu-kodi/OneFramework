@@ -1,4 +1,4 @@
-# GenericFramework
+# OneFramework
 This is a generic Page Object Model which will fit for both Mobile & Web platforms.
 This will serve the benefits to both native android, ios and web platforms with single framework.
 
