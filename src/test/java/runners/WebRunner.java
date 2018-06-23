@@ -3,6 +3,9 @@ package runners;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
+import stepDefs.Hooks;
+
+import java.sql.Driver;
 
 @CucumberOptions(features = {"src/test/java/features"},
         glue = "stepDefs",
