@@ -15,8 +15,8 @@ As part of this framework I have taken Wordpress mobile app for Android & iOS mo
 6. Log4j
 7. Gradle
 
-# How this framework works
-This framework is built in BDD style using cucumber framework and scenarios will be run using cucumber-junit runners
+# How this framework works:
+This framework is built in BDD style using cucumber framework and scenarios will be run using cucumber-junit runners.<br/>
 We have 3 different runners for 3 platforms and here is how we tag those scenarios and execute them.
 
 Scenarios tagging
@@ -29,3 +29,11 @@ Execution
 + gradle test --tests "runners.AndroidRunner"
 + gradle test --tests "runners.IOSRunner"
 + gradle test --tests "runners.WebRunner"
+
+# Pending tasks:
+1. Proper logging at each step
+2. Parallel test execution
+3. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
+4. Recording of test execution
+5. Detailed cucumber profiling
+6. Gradle tasking
