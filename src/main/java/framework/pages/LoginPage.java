@@ -15,6 +15,7 @@ public class LoginPage extends Page {
     public HashMap<String, HashMap> elePageTitle() {
         locatorMap.put("android", new HashMap(){{put("id", "label");}});
         locatorMap.put("ios", new HashMap(){{put("id", "Log in to WordPress.com using an email address to manage all your WordPress sites.");}});
+        locatorMap.put("web", new HashMap(){{put("xpath", "//div[@class='login__form-header']");}});
         return locatorMap;
     }
 

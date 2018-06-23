@@ -1,10 +1,11 @@
 package framework.core;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
@@ -12,11 +13,11 @@ import java.net.URL;
 
 public class DriverManager {
 
-    static AppiumDriver driver;
+    static WebDriver driver;
 
     public static String driverType;
 
-    public static AppiumDriver getDriver() {
+    public static WebDriver getDriver() {
         return driver;
     }
 
@@ -43,7 +44,9 @@ public class DriverManager {
             driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
             WebDriverWait iOSWait = new WebDriverWait(driver, 30);
         } else {
-            System.out.println("Unable to set driver type");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/dependency/chromedriver_mac");
+            driver = new ChromeDriver();
+            driver.get("https://wordpress.com/");
         }
     }
 }

@@ -9,6 +9,5 @@ public class LoginPageSteps {
     @Then("^User should see page title as \"([^\"]*)\"$")
     public void userShouldSeePageTitleAs(String validationText) throws Throwable {
         Assert.assertEquals(new LoginPage().getTitle(), validationText);
-
     }
 }

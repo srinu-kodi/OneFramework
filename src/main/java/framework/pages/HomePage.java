@@ -16,21 +16,23 @@ public class HomePage extends Page {
     public HashMap<String, HashMap> eleLoginButton() {
         locatorMap.put("android", new HashMap(){{put("id", "login_button");}});
         locatorMap.put("ios", new HashMap(){{put("id", "Log In Button");}});
+        locatorMap.put("web", new HashMap(){{put("id", "navbar-login-link");}});
         return locatorMap;
     }
 
     public HashMap<String, HashMap> eleSignupButton() {
         locatorMap.put("android", new HashMap(){{put("id", "create_site_button");}});
         locatorMap.put("ios", new HashMap(){{put("id", "Sign up for WordPress.com Button");}});
+        locatorMap.put("web", new HashMap(){{put("id", "navbar-getstarted-link");}});
         return locatorMap;
     }
 
-    public LoginPage clickLoginButton() throws LocatorNotSetException {
+    public LoginPage chooseSignInOption() throws LocatorNotSetException {
         click(eleLoginButton());
         return new LoginPage();
     }
 
-    public SignupPage clickSignupButton() throws LocatorNotSetException {
+    public SignupPage chooseSignUpOption() throws LocatorNotSetException {
         click(eleSignupButton());
         return new SignupPage();
     }

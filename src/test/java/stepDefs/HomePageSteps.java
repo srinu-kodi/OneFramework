@@ -8,10 +8,10 @@ public class HomePageSteps {
     @Given("^User chooses \"([^\"]*)\" option$")
     public void userChoosesOption(String option) throws Throwable {
         if(option.toLowerCase().equals("login")) {
-            new HomePage().clickLoginButton();
+            new HomePage().chooseSignInOption();
         }
         else if(option.toLowerCase().equals("signup")) {
-            new HomePage().clickSignupButton();
+            new HomePage().chooseSignUpOption();
         }
     }
 }

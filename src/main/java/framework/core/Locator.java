@@ -3,6 +3,7 @@ package framework.core;
 import framework.exceptionManager.LocatorNotSetException;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 
 public class Locator {
 
-    static AppiumDriver driver;
+    static WebDriver driver;
 
     public Locator() {
         this.driver = new DriverManager().getDriver();
