@@ -26,3 +26,7 @@ Feature: Wordpress SignUp/SignIn Feature
   @web
   Scenario: Wordpress Signup scenario
     Given User chooses "Signup" option
+
+  @web @android @ios
+  Scenario: Wordpress Signup scenario
+    Given User chooses "Signup" option
