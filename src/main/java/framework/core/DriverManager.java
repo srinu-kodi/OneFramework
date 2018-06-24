@@ -25,7 +25,6 @@ public class DriverManager {
         if (driverType.equals("android")) {
             DesiredCapabilities androidCapabilities = new DesiredCapabilities();
             androidCapabilities.setCapability("deviceName", "emulator-5554");
-            androidCapabilities.setCapability("device", "Android");
             androidCapabilities.setCapability("platformName", "Android");
             androidCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/WordPress.apk");
             androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "org.wordpress.android");

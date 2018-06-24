@@ -1,0 +1,30 @@
+{
+  "mobile": [
+    {
+      "android": [
+        {
+          "deviceName": "emulator-5554",
+          "platformName": "Android",
+          "appRelativePath": "/artifacts/WordPress.apk",
+          "appPackage": "org.wordpress.android",
+          "appActivity": "org.wordpress.android.ui.WPLaunchActivity"
+        }
+      ],
+      "ios": [
+        {
+          "deviceName": "iPhone 8",
+          "platformVersion": "11.4",
+          "platformName": "iOS",
+          "appRelativePath": "/artifacts/WordPress.app",
+          "automationName": "XCUITest",
+          "udid": "65D41497-6506-41C3-9644-EC166EEA2159"
+        }
+      ]
+    }
+  ],
+  "web": [
+    {
+      "browserType": "Chrome"
+    }
+  ]
+}
