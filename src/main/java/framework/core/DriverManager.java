@@ -43,7 +43,7 @@ public class DriverManager {
             driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
             WebDriverWait iOSWait = new WebDriverWait(driver, 30);
         } else {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ DriverConfig.CHROME_DRIVER_MAC);
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ DriverConfig.CHROME_DRIVER_PATH_MAC);
             driver = new ChromeDriver();
             driver.get("https://wordpress.com/");
         }

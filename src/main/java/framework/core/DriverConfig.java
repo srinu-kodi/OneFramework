@@ -15,7 +15,7 @@ public class DriverConfig {
     public static final String IOS_SIMULATOR_UDID = "65D41497-6506-41C3-9644-EC166EEA2159";
     public static final String IOS_AUTOMATION_NAME = "XCUITest";
 
-    public static final String CHROME_DRIVER_MAC = "/dependency/chromedriver_mac";
-    public static final String CHROME_DRIVER_WINDOWS = "/dependency/chromedriver_windows.exe";
-    public static final String CHROME_DRIVER_LINUX = "/dependency/chromedriver_linux";
+    public static final String CHROME_DRIVER_PATH_MAC = "/dependency/chromedriver_mac";
+    public static final String CHROME_DRIVER_PATH_WINDOWS = "/dependency/chromedriver_windows.exe";
+    public static final String CHROME_DRIVER_PATH_LINUX = "/dependency/chromedriver_linux";
 }
