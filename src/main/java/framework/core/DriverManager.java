@@ -24,26 +24,26 @@ public class DriverManager {
     public static void startAUT() throws MalformedURLException {
         if (driverType.equals("android")) {
             DesiredCapabilities androidCapabilities = new DesiredCapabilities();
-            androidCapabilities.setCapability("deviceName", "emulator-5554");
-            androidCapabilities.setCapability("platformName", "Android");
-            androidCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/WordPress.apk");
-            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "org.wordpress.android");
-            androidCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
-            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "org.wordpress.android.ui.WPLaunchActivity");
+            androidCapabilities.setCapability("deviceName", DriverConfig.ANDROID_EMULATOR_NAME);
+            androidCapabilities.setCapability("platformName", DriverConfig.ANDROID_PLATFORM_NAME);
+            androidCapabilities.setCapability("app", System.getProperty("user.dir") + DriverConfig.ANDROID_APP_PATH);
+            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, DriverConfig.ANDROID_PACKAGE_NAME);
+            androidCapabilities.setCapability(MobileCapabilityType.FULL_RESET, DriverConfig.ANDROID_APP_FULL_RESET);
+            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, DriverConfig.ANDROID_ACTIVITY_NAME);
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), androidCapabilities);
             WebDriverWait androidWait = new WebDriverWait(driver, 30);
         } else if (driverType.equals("ios")) {
             DesiredCapabilities iosCapabilities = new DesiredCapabilities();
-            iosCapabilities.setCapability("deviceName", "iPhone 8");
-            iosCapabilities.setCapability("platformName", "iOS");
-            iosCapabilities.setCapability("platformVersion", "11.4");
-            iosCapabilities.setCapability("automationName", "XCUITest");
-            iosCapabilities.setCapability("udid", "65D41497-6506-41C3-9644-EC166EEA2159");
-            iosCapabilities.setCapability("app", System.getProperty("user.dir") + "/artifacts/WordPress.app");
+            iosCapabilities.setCapability("deviceName", DriverConfig.IOS_SIMULATOR_NAME);
+            iosCapabilities.setCapability("platformName", DriverConfig.IOS_PLATFORM_NAME);
+            iosCapabilities.setCapability("platformVersion", DriverConfig.IOS_PLATFORM_VERSION);
+            iosCapabilities.setCapability("automationName", DriverConfig.IOS_AUTOMATION_NAME);
+            iosCapabilities.setCapability("udid", DriverConfig.IOS_SIMULATOR_UDID);
+            iosCapabilities.setCapability("app", System.getProperty("user.dir") + DriverConfig.IOS_APP_PATH);
             driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
             WebDriverWait iOSWait = new WebDriverWait(driver, 30);
         } else {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/dependency/chromedriver_mac");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ DriverConfig.CHROME_DRIVER_MAC);
             driver = new ChromeDriver();
             driver.get("https://wordpress.com/");
         }
