@@ -39,3 +39,9 @@ Execution <br/>
 4. Recording of test execution
 5. Detailed cucumber profiling
 6. Gradle tasking
+7. Scroll up/down
+8. Scroll to particular elements
+9. Swipe left/right
+
+Moreover will incorporate if anything pops up in mind, going forward.
+For feedback, drop an email to srinuk544@gmail.com
