@@ -44,4 +44,5 @@ Execution <br/>
 9. Swipe left/right
 
 Moreover will incorporate if anything pops up in mind, going forward.
-For feedback or any issues you face, raise a Pull Request.
+Raise an issue, uf you face any issues with this.
+Raise a Pull Request, if you see and fix any issues.
