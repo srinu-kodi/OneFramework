@@ -44,4 +44,4 @@ Execution <br/>
 9. Swipe left/right
 
 Moreover will incorporate if anything pops up in mind, going forward.
-For feedback, drop an email to srinuk544@gmail.com
+For feedback or any issues you face, raise a Pull Request.
