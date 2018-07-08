@@ -28,9 +28,10 @@ Scenarios tagging <br/>
  @ignore - to ignore certain tests <br/>
 
 Execution <br/>
- gradle test --tests "runners.AndroidRunner" <br/>
- gradle test --tests "runners.IOSRunner" <br/>
- gradle test --tests "runners.WebRunner" <br/>
+ gradle clean test -Pplatform=<platformName> <br/>
+ 
+ For eg. If it is android platform, the command is <br/>
+ gradle clean test -Pplatform=android
 
 # Pending tasks: <br/>
 1. Proper logging at each step
@@ -38,7 +39,7 @@ Execution <br/>
 3. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
 4. Recording of test execution
 5. Detailed cucumber profiling
-6. Gradle tasking
+6. Gradle tasking (Created one task for running the tests, few tasks are pending)
 7. Scroll up/down
 8. Scroll to particular elements
 9. Swipe left/right
