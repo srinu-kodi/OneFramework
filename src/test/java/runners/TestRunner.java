@@ -7,9 +7,8 @@ import stepDefs.Hooks;
 
 @CucumberOptions(features = {"src/test/java/features"},
         glue = "stepDefs",
-        tags = {"@android", "~@ignore"},
-        format = {"pretty", "html:target/cucumber"})
+        format = {"pretty", "html:runReport/cucumber"})
 @RunWith(Cucumber.class)
-public class AndroidRunner extends Hooks {
+public class TestRunner extends Hooks {
 
 }

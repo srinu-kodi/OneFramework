@@ -16,3 +16,21 @@ dependencies {
     testCompile group: 'info.cukes', name: 'cucumber-java', version: '1.2.5'
     testCompile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
 }
+
+test {
+    if (platform.equals("web")) {
+        println("web");
+        systemProperty("platform", "web");
+        systemProperty "cucumber.options", "--tags @web --tags ~@ignore";
+    } else if (platform.equals("android")) {
+        println(platform)
+        systemProperty("platform", "android");
+        systemProperty "cucumber.options", "--tags @android --tags ~@ignore"
+    } else if (platform.equals("ios")) {
+        println(platform)
+        systemProperty("platform", "ios");
+        systemProperty "cucumber.options", "--tags @ios --tags ~@ignore"
+    } else {
+        println('Did not receive correct platform');
+    }
+}
