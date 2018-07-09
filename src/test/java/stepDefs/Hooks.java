@@ -4,9 +4,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import framework.core.AppiumServer;
 import framework.core.DriverManager;
-
 import java.io.IOException;
-import java.net.MalformedURLException;
 
 public class Hooks {
 
