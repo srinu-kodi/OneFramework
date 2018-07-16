@@ -16,8 +16,8 @@ public class DriverConfig {
     public static final String IOS_AUTOMATION_NAME = "XCUITest";
     public static final boolean IOS_APP_NO_RESET = true;
 
-    public static final String CHROME_DRIVER_PATH_MAC = "/dependency/chromedriver_mac";
-    public static final String CHROME_DRIVER_PATH_WINDOWS = "/dependency/chromedriver_windows.exe";
-    public static final String CHROME_DRIVER_PATH_LINUX = "/dependency/chromedriver_linux";
+    public static final String CHROME_DRIVER_MAC = "/dependency/chromedriver_mac";
+    public static final String CHROME_DRIVER_WINDOWS = "/dependency/chromedriver_windows.exe";
+    public static final String CHROME_DRIVER_LINUX = "/dependency/chromedriver_linux";
     public static final String APP_URL = "https://wordpress.com/";
 }

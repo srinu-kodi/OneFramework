@@ -13,3 +13,8 @@ Feature: Wordpress SignUp/SignIn Feature
   Scenario: Wordpress Login scenario
     Given User chooses "Login" option
     Then User should see page title as "Log in to your account."
+
+  @web
+  Scenario: Wordpress Login scenario
+    Given User chooses "Login" option
+    Then User should see page title as "Log in to your account."

@@ -1,14 +1,11 @@
 package framework.core;
 
 import framework.exceptionManager.LocatorNotSetException;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.HashMap;
 
 public class Page extends Locator {
-
-    public Page() {
-
-    }
 
     public void click(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
         getLocator(locatorMap).click();
@@ -24,5 +21,9 @@ public class Page extends Locator {
 
     public boolean isElementPresent(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
         return isElementDisplayed(locatorMap);
+    }
+
+    public void scrollToElement(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
+        ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", getLocator(locatorMap));
     }
 }

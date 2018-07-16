@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -43,10 +44,19 @@ public class DriverManager {
             iosCapabilities.setCapability("app", System.getProperty("user.dir") + DriverConfig.IOS_APP_PATH);
             driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
             WebDriverWait iOSWait = new WebDriverWait(driver, 30);
-        } else {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ DriverConfig.CHROME_DRIVER_PATH_MAC);
+        } else if (driverType.equals("web")) {
+            String os = System.getProperty("os.name");
+            if (os.contains("mac")) {
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + DriverConfig.CHROME_DRIVER_MAC);
+            } else if (os.contains("windows")) {
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + DriverConfig.CHROME_DRIVER_WINDOWS);
+            } else if (os.contains("unix")) {
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + DriverConfig.CHROME_DRIVER_LINUX);
+            }
             driver = new ChromeDriver();
             driver.get(DriverConfig.APP_URL);
+        } else {
+            System.out.println("platform is not passed");
         }
     }
 }
