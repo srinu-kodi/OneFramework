@@ -17,7 +17,13 @@ dependencies {
     testCompile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
 }
 
+
 test {
+    if (browser == null) {
+        systemProperty("browser", "chrome");
+    } else {
+        systemProperty("browser", browser);
+    }
     if (platform.equals("web")) {
         println("web");
         systemProperty("platform", "web");

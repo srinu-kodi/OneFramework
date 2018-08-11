@@ -1,11 +1,14 @@
 package framework.core;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -53,7 +56,14 @@ public class DriverManager {
             } else if (os.contains("unix")) {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + DriverConfig.CHROME_DRIVER_LINUX);
             }
-            driver = new ChromeDriver();
+
+            String strBrowserType = System.getProperty("browser");
+            if(strBrowserType.toLowerCase().equals("firefox")) {
+                driver = new FirefoxDriver();
+            }
+            else if(strBrowserType.toLowerCase().equals("chrome")) {
+                driver = new ChromeDriver();
+            }
             driver.get(DriverConfig.APP_URL);
         } else {
             System.out.println("platform is not passed");
