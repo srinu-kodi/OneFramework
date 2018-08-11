@@ -24,6 +24,6 @@ public class Page extends Locator {
     }
 
     public void scrollToElement(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
-        ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", getLocator(locatorMap));
+        new Actions().scrollTo(locatorMap);
     }
 }
