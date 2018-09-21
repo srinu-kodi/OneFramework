@@ -33,6 +33,10 @@ Execution <br/>
  For eg. If it is android platform, the command is <br/>
  gradle clean test -Pplatform=android
 
+# First Time Setup: <br/>
+- Comment `test` task in build.gradle and make gradle sync
+- After successful sync, uncomment the `test` and start running your tests :)
+
 # Pending tasks: <br/>
 1. Proper logging at each step
 2. Parallel test execution
