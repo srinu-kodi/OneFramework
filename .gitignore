@@ -2,11 +2,12 @@
 .idea/.
 .gradle/*
 results/*
+gradle/
+gradle/*
 out/*
 target/*
 build/*
 runReport/*
-gradle/
 gradlew
 gradlew.bat
 src/main/main.iml
