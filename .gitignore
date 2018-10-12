@@ -6,3 +6,8 @@ out/*
 target/*
 build/*
 runReport/*
+gradle/
+gradlew
+gradlew.bat
+src/main/main.iml
+src/test/test.iml
