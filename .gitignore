@@ -12,3 +12,4 @@ gradlew
 gradlew.bat
 src/main/main.iml
 src/test/test.iml
+appiumServerLog.txt
