@@ -1,15 +1,15 @@
 .idea/*
 .idea/.
 .gradle/*
-results/*
 gradle/
 gradle/*
 out/*
 target/*
 build/*
-runReport/*
 gradlew
 gradlew.bat
 src/main/main.iml
 src/test/test.iml
 appiumServerLog.txt
+results/*
+runReport/*
