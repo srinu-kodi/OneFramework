@@ -1,14 +1,12 @@
 package framework.core;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,6 +18,8 @@ public class DriverManager {
     static WebDriver driver;
 
     public static String driverType;
+    public static String browsername = System.getProperty("browser");
+    public static String os = System.getProperty("os.name");
 
     public static WebDriver getDriver() {
         return driver;
@@ -28,45 +28,39 @@ public class DriverManager {
     public static void startAUT() throws MalformedURLException {
         if (driverType.equals("android")) {
             DesiredCapabilities androidCapabilities = new DesiredCapabilities();
-            androidCapabilities.setCapability("deviceName", DriverConfig.ANDROID_EMULATOR_NAME);
-            androidCapabilities.setCapability("platformName", DriverConfig.ANDROID_PLATFORM_NAME);
-            androidCapabilities.setCapability("app", System.getProperty("user.dir") + DriverConfig.ANDROID_APP_PATH);
-            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, DriverConfig.ANDROID_PACKAGE_NAME);
-            androidCapabilities.setCapability(MobileCapabilityType.NO_RESET, DriverConfig.ANDROID_APP_NO_RESET);
-            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, DriverConfig.ANDROID_ACTIVITY_NAME);
+            androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+            androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+            androidCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/apps/WordPress.apk");
+            androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1");
+            androidCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
+            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "org.wordpress.android");
+            androidCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+            androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "org.wordpress.android.ui.WPLaunchActivity");
             driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), androidCapabilities);
             WebDriverWait androidWait = new WebDriverWait(driver, 30);
         } else if (driverType.equals("ios")) {
             DesiredCapabilities iosCapabilities = new DesiredCapabilities();
-            iosCapabilities.setCapability("deviceName", DriverConfig.IOS_SIMULATOR_NAME);
-            iosCapabilities.setCapability("platformName", DriverConfig.IOS_PLATFORM_NAME);
-            iosCapabilities.setCapability("platformVersion", DriverConfig.IOS_PLATFORM_VERSION);
-            iosCapabilities.setCapability("automationName", DriverConfig.IOS_AUTOMATION_NAME);
-            iosCapabilities.setCapability("udid", DriverConfig.IOS_SIMULATOR_UDID);
-            iosCapabilities.setCapability(MobileCapabilityType.NO_RESET, DriverConfig.IOS_APP_NO_RESET);
-            iosCapabilities.setCapability("app", System.getProperty("user.dir") + DriverConfig.IOS_APP_PATH);
+            iosCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 6s");
+            iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+            iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.4");
+            iosCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.IOS_XCUI_TEST);
+            iosCapabilities.setCapability(MobileCapabilityType.UDID, "B9072B66-ABFA-47C2-B0F7-55D40EF4D5F5");
+            iosCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+            iosCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/apps/WordPress.app");
             driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
             WebDriverWait iOSWait = new WebDriverWait(driver, 30);
-        } else if (driverType.equals("web")) {
-            String os = System.getProperty("os.name");
+        } else if (driverType.equalsIgnoreCase("web") && browsername.equalsIgnoreCase("chrome")) {
             if (os.contains("mac")) {
-                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + DriverConfig.CHROME_DRIVER_MAC);
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/browserDrivers/chromedriver_mac");
             } else if (os.contains("windows")) {
-                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + DriverConfig.CHROME_DRIVER_WINDOWS);
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/browserDrivers/chromedriver_windows");
             } else if (os.contains("unix")) {
-                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + DriverConfig.CHROME_DRIVER_LINUX);
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/browserDrivers/chromedriver_linux");
             }
-
-            String strBrowserType = System.getProperty("browser");
-            if(strBrowserType.toLowerCase().equals("firefox")) {
-                driver = new FirefoxDriver();
-            }
-            else if(strBrowserType.toLowerCase().equals("chrome")) {
-                driver = new ChromeDriver();
-            }
-            driver.get(DriverConfig.APP_URL);
+            driver = new ChromeDriver();
+            driver.get("https://wordpress.com/");
         } else {
-            System.out.println("platform is not passed");
+            System.out.println("Either platform or browser type is not set, please pass thru command line");
         }
     }
 }

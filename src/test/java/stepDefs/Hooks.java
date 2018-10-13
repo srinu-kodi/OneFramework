@@ -4,14 +4,10 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import framework.core.AppiumServer;
 import framework.core.DriverManager;
+
 import java.io.IOException;
 
 public class Hooks {
-
-    @Before
-    public void beforeClass() {
-        System.out.println("Initializing the driver instance");
-    }
 
     @Before()
     public void beforeTestsRun() throws IOException {
