@@ -19,6 +19,7 @@ dependencies {
 test {
     testLogging {
         showStandardStreams = true;
+        events "PASSED", "FAILED", "SKIPPED", "STARTED"
     }
 
     if (platform.equals("web") && (browser.equals("chrome") || browser.equals("firefox"))) {
