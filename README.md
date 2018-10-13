@@ -74,10 +74,7 @@ $ gradle clean test -Pplatform=web -Pbrowser=chrome
 
 Moreover will incorporate if anything pops up in mind, going forward.<br>
 
-<<<<<<< Updated upstream
-### `How to contribute?`
-=======
 ##`How to contribute?`
->>>>>>> Stashed changes
+
 1. Raise an issue, if you face any code related issues with this framework.<br>
 2. Raise a PR, if you add any new feature or fix any issues.
