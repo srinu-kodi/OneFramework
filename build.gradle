@@ -12,28 +12,23 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'io.appium', name: 'java-client', version: '5.0.4'
+    compile group: 'io.appium', name: 'java-client', version: '6.1.0'
     testCompile group: 'info.cukes', name: 'cucumber-java', version: '1.2.5'
     testCompile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
 }
-
-
 test {
-    if (browser == null) {
-        systemProperty("browser", "chrome");
-    } else {
-        systemProperty("browser", browser);
+    testLogging {
+        showStandardStreams = true;
     }
-    if (platform.equals("web")) {
-        println("web");
+
+    if (platform.equals("web") && (browser.equals("chrome") || browser.equals("firefox"))) {
         systemProperty("platform", "web");
+        systemProperty("browser", browser);
         systemProperty "cucumber.options", "--tags @web --tags ~@ignore";
     } else if (platform.equals("android")) {
-        println(platform)
         systemProperty("platform", "android");
         systemProperty "cucumber.options", "--tags @android --tags ~@ignore"
     } else if (platform.equals("ios")) {
-        println(platform)
         systemProperty("platform", "ios");
         systemProperty "cucumber.options", "--tags @ios --tags ~@ignore"
     } else {
