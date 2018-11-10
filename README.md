@@ -2,13 +2,24 @@
 This is a generic Page Object Model which will fit for both Mobile & Web platforms.
 This will serve the benefits to both native android, ios and web platforms with single framework.
 
-We often tend to create different test frameworks for different platforms and it is very difficlut for anyone to serve all platform needs in one test automation framework.
+We often tend to create different test frameworks for different platforms and it is very difficult for anyone to serve all platform needs in one test automation framework.
 
-<b>`If you have same application on android, ios & web platforms and you want single code base to handle the automation? This framework is for you.`</b>
+<b>`If you want to to automate the same application on android, ios & web platforms and you want single code base to handle the automation? This framework is for you.`</b>
 
 <b>`FYI: I have taken WordPress app which is available on all platforms for automation.`</b>
 
-### `Libraries used`
+## Table of contents
+
+* [Libraries Used](#libraries-used)
+* [Prerequisites Installations](#prerequisites-installations)
+* [Appium Setup](#appium-setup)
+* [How To This Framework Works](#how-this-framework-works)
+* [How To Run Tests](#how-to-run-tests)
+* [Pending Tasks](#pending-tasks)
+* [How To Contribute?](#how-to-contribute)
+
+## Libraries Used
+
 1. Appium
 2. Selenium WebDriver
 3. Java
@@ -16,48 +27,68 @@ We often tend to create different test frameworks for different platforms and it
 5. jUnit
 6. Gradle
 
-### `Installations Required`
+## Prerequisites Installations
 
-JAVA 1.8<br>
-Node & NPM<br>
-Gradle<br>
-Android<br>
-iOS<br>
+1. `JAVA 1.8`<br>
+    Install Java and set the JAVA_HOME path on your machine.
+2. `Node & NPM`<br>
+    Download Node from `https://nodejs.org/en/download/` and install it on your machine.
+3. `Gradle`<br>
+    Install gradle
+4.  `Android`<br>
+    Install Android Studio & set the android environment properly which includes<br>
+    -  Downloading the Android SDK
+    -  Download the Android SDK tools such as 
+       1. Build tools
+       2. Platform tools
+       3. Android Emulator
+       4. Intel HAXM installer etc.....
+5.  `iOS`<br>
+    Install XCode on your machine and download required iPhone/iPad simulators
 
-- Once Node & NPM is installed, install appium using below command.
+## Appium Setup
+
+- Once Node is installed, install appium using below command.<br>
+<b>`Note: Since Appium is a node server, so you need appium(node package) installed on your machine and below is the command for the same.`</b>
 ``` 
  $ sudo npm install -g appium@1.9.1 --unsafe-perm=true --allow-root 
 ```
-- Now install appium-doctor which is used to see if appium setup is correctly done or not.<br>
+- Install <b>`appium-doctor`</b> which is used to see if appium setup is correctly done or not. Below is the command for the same.<br>
 ``` 
  $ sudo npm install -g appium-doctor --unsafe-perm=true --allow-root
 ```
-- Now run <b>`appium-doctor`</b> to see if the setup is correct or not, and install missing things.<br>
+- Run <b>`appium-doctor`</b> and fix the issues in setup<br>
 ```
 $ appium-doctor
 ```
  
- <b>`Note: You can ignore "Bin directory for $JAVA_HOME is not set" error. But except this everything should be green when you run "appium-doctor"`</b>
+<b>`Note: You may ignore "Bin directory for $JAVA_HOME is not set" error, if it shows up. But except this everything should OKAY`</b>
 
-### `First Time Setup`
+## How This Framework Works
 
-Once all the installations are successful in above step, then you 
-- Clone the repo using below command & open it in any IDE.
-- Comment out the `test` task in build.gradle & make gradle sync in order to download the dependencies.
-- Once dependencies are downloaded, uncomment the `test` task and run your tests.<br>
+This framework is built in Page Object Model style on Cucumber BDD framework.<br>
+We have one test runner which can handle all platforms and here is how we tag the scenarios for each platform.
 
-In order this framework to work on your machine, you need to setup Appium on your machine.<br>
-
-### `How this framework works`
-This framework is built in BDD style using cucumber framework and scenarios will be run using cucumber-junit runners.<br/>
-We have 3 different runners for 3 platforms and here is how we tag the scenarios and execute them.
-
- @web - for web tests <br/>
- @android - for android tests <br/>
- @ios - for ios tests <br/>
- @ignore - to ignore certain tests <br/>
+ <b>`@web`</b> - web browser tests <br/>
+ <b>`@android`</b> - android tests <br/>
+ <b>`@ios`</b> - ios tests <br/>
+ <b>`@ignore`</b> - ignore certain tests <br/>
  
-### `How to run tests`
+###### Here are the minimal things you have to do.
+ 
+ - Write your own cucumber scenarios & its step definitions 
+ - Creating Page Object classes with your Application page names (I already created some pages, you can take the reference)
+ - Page Object locators (You need to follow this framework notation when defining the locators for each platform)
+ - Set Android driver details (Like API version, emulator name, APK path etc...)
+ - Set iPhone/iPad driver details (Like OS version, simulator name, UDID, App path etc...)
+ - Set web app URL
+ 
+## How To Run Tests
+
+- Clone the repo using below command & open<br>
+    `https://github.com/srinu-kodi/OneFramework.git`
+- Comment out the `test` task in build.gradle file & make gradle sync to download the dependencies.
+- Once dependencies are downloaded, uncomment the `test` task<br>
 
 ```
 $ gradle clean test -Pplatform=android
@@ -65,16 +96,16 @@ $ gradle clean test -Pplatform=ios
 $ gradle clean test -Pplatform=web -Pbrowser=chrome
 ```
 
-### `Pending tasks`
+## Pending Tasks
 1. Proper logging at each step
 2. Parallel test execution
 3. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
 4. Recording of test execution
 5. Gradle tasking (Created one task for running the tests, few tasks are pending)<br>
 
-Moreover will incorporate if anything pops up in mind, going forward.<br>
+Moreover I will incorporate if anything pops up in mind, going forward.<br>
 
-### `How to contribute?`
+## How To Contribute?
 
-1. Raise an issue, if you face any code related issues with this framework.<br>
-2. Raise a PR, if you add any new feature or fix any issues.
+1. Raise a PR, if you already add any new feature or fix any issues in this framework.
+2. Raise an issue, if you face any code related issues(genuine ones) with this framework.<br>
