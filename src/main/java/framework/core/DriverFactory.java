@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class DriverManager {
+public class DriverFactory {
 
     static WebDriver driver;
 
@@ -25,7 +25,7 @@ public class DriverManager {
         return driver;
     }
 
-    public static void startAUT() throws MalformedURLException {
+    public static void setupDriver() throws MalformedURLException {
         if (driverType.equals("android")) {
             DesiredCapabilities androidCapabilities = new DesiredCapabilities();
             androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");

@@ -3,7 +3,7 @@ package stepDefs;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import framework.core.AppiumServer;
-import framework.core.DriverManager;
+import framework.core.DriverFactory;
 
 import java.io.IOException;
 
@@ -11,12 +11,12 @@ public class Hooks {
 
     @Before()
     public void beforeTestsRun() throws IOException {
-        DriverManager.driverType = System.getProperty("platform"); // Getting the platform name from gradle commandline and setting this value in build.gradle
-        if (DriverManager.driverType.equals("web")) {
-            DriverManager.startAUT();
-        } else if (DriverManager.driverType.equals("android") || DriverManager.driverType.equals("ios")) {
+        DriverFactory.driverType = System.getProperty("platform"); // Getting the platform name from gradle commandline and setting this value in build.gradle
+        if (DriverFactory.driverType.equals("web")) {
+            DriverFactory.setupDriver();
+        } else if (DriverFactory.driverType.equals("android") || DriverFactory.driverType.equals("ios")) {
             AppiumServer.start();
-            DriverManager.startAUT();
+            DriverFactory.setupDriver();
         } else {
             System.out.println("Please specify the platform type");
         }
@@ -24,10 +24,10 @@ public class Hooks {
 
     @After()
     public void afterTestsRun() throws IOException {
-        if (DriverManager.driverType.equals("web")) {
-            DriverManager.getDriver().quit();
-        } else if (DriverManager.driverType.equals("android") || DriverManager.driverType.equals("ios")) {
-            DriverManager.getDriver().quit();
+        if (DriverFactory.driverType.equals("web")) {
+            DriverFactory.getDriver().quit();
+        } else if (DriverFactory.driverType.equals("android") || DriverFactory.driverType.equals("ios")) {
+            DriverFactory.getDriver().quit();
             AppiumServer.stop();
         } else {
             System.out.println("Driver/Appium instance is already shutdown");

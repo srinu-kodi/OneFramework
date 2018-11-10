@@ -14,12 +14,12 @@ public class Locator {
     static WebDriver driver;
 
     public Locator() {
-        this.driver = new DriverManager().getDriver();
+        this.driver = new DriverFactory().getDriver();
     }
 
     public WebElement getLocator(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
         WebElement webElement = null;
-        HashMap<String, String> map = locatorMap.get(DriverManager.driverType);
+        HashMap<String, String> map = locatorMap.get(DriverFactory.driverType);
         for (String key : map.keySet()) {
             webElement = getLocatorByType(key, map.get(key));
         }

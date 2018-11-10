@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class Actions extends Page{
 
     public void scrollTo(HashMap<String, HashMap> locatorMap) throws LocatorNotSetException {
-        ((JavascriptExecutor) DriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", getLocator(locatorMap));
+        ((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView(true);", getLocator(locatorMap));
     }
 
     public void scrollUp() {
