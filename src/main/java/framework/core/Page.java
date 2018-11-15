@@ -1,7 +1,6 @@
 package framework.core;
 
 import framework.exceptionManager.LocatorNotSetException;
-import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.HashMap;
 

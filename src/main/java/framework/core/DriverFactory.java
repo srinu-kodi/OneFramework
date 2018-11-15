@@ -16,16 +16,15 @@ import java.net.URL;
 public class DriverFactory {
 
     static WebDriver driver;
-
     public static String driverType;
-    public static String browsername = System.getProperty("browser");
-    public static String os = System.getProperty("os.name");
 
     public static WebDriver getDriver() {
         return driver;
     }
 
     public static void setupDriver() throws MalformedURLException {
+        String browserName = System.getProperty("browser");
+        String os = System.getProperty("os.name");
         if (driverType.equals("android")) {
             DesiredCapabilities androidCapabilities = new DesiredCapabilities();
             androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
@@ -49,7 +48,7 @@ public class DriverFactory {
             iosCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/apps/WordPress.app");
             driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
             WebDriverWait iOSWait = new WebDriverWait(driver, 30);
-        } else if (driverType.equalsIgnoreCase("web") && browsername.equalsIgnoreCase("chrome")) {
+        } else if (driverType.equalsIgnoreCase("web") && browserName.equalsIgnoreCase("chrome")) {
             if (os.contains("mac")) {
                 System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/browserDrivers/chromedriver_mac");
             } else if (os.contains("windows")) {
