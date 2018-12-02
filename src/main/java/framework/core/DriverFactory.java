@@ -5,8 +5,13 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -48,18 +53,20 @@ public class DriverFactory {
             iosCapabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/apps/WordPress.app");
             driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
             WebDriverWait iOSWait = new WebDriverWait(driver, 30);
-        } else if (driverType.equalsIgnoreCase("web") && browserName.equalsIgnoreCase("chrome")) {
-            if (os.contains("mac")) {
-                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/browserDrivers/chromedriver_mac");
-            } else if (os.contains("windows")) {
-                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/browserDrivers/chromedriver_windows");
-            } else if (os.contains("unix")) {
-                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/browserDrivers/chromedriver_linux");
+        } else if (driverType.equalsIgnoreCase("web"))
+            if (browserName.equalsIgnoreCase("chrome")) {
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+            } else if (browserName.equalsIgnoreCase("firefox")) {
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+            } else if (browserName.equalsIgnoreCase("ie")) {
+                WebDriverManager.iedriver().setup();
+                driver = new InternetExplorerDriver();
+            } else if (browserName.equalsIgnoreCase("edge")) {
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
             }
-            driver = new ChromeDriver();
-            driver.get("https://wordpress.com/");
-        } else {
-            System.out.println("Either platform or browser type is not set, please pass thru command line");
-        }
+        driver.get("https://www.wordpress.com");
     }
 }
