@@ -1,5 +1,9 @@
-group 'Automation'
+apply plugin: 'java'
 apply plugin: 'application'
+
+mainClassName = 'org.oneframework.runners.TestRunner'
+
+group 'OneFramework'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -11,29 +15,19 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'io.appium', name: 'java-client', version: '6.1.0'
-    testCompile group: 'info.cukes', name: 'cucumber-java', version: '1.2.5'
-    testCompile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
+    compile group: 'io.appium', name: 'java-client', version: '6.0.0'
+    compile group: 'org.testng', name: 'testng', version: '6.9.10'
+    testCompile group: 'info.cukes', name: 'cucumber-java', version: '4.2.0'
+    testCompile group: 'info.cukes', name: 'cucumber-junit', version: '4.2.0'
     compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '2.2.5'
 }
-test {
-    testLogging {
-        showStandardStreams = true;
-        events "PASSED", "FAILED", "SKIPPED", "STARTED"
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
     }
 
-    if (platform.equals("web") && (browser.equals("chrome") || browser.equals("firefox"))) {
-        systemProperty("platform", "web");
-        systemProperty("browser", browser);
-        systemProperty "cucumber.options", "--tags @web --tags ~@ignore";
-    } else if (platform.equals("android")) {
-        systemProperty("platform", "android");
-        systemProperty "cucumber.options", "--tags @android --tags ~@ignore"
-    } else if (platform.equals("ios")) {
-        systemProperty("platform", "ios");
-        systemProperty "cucumber.options", "--tags @ios --tags ~@ignore"
-    } else {
-        println('Did not receive correct platform');
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }

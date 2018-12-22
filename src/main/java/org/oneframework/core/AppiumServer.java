@@ -1,4 +1,4 @@
-package framework.core;
+package org.oneframework.core;
 
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class AppiumServer {
 
-    static AppiumDriverLocalService appium;
+    public static AppiumDriverLocalService appium;
 
     public static void start() throws IOException {
         AppiumServiceBuilder builder = new AppiumServiceBuilder()
@@ -17,12 +17,10 @@ public class AppiumServer {
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
                 .withLogFile(new File(System.getProperty("user.dir") + "/appiumServerLog.txt"));
         appium = builder.build();
-        System.out.println("Starting the Appium Server on 127.0.0.1:4723");
         appium.start();
     }
 
-    public static void stop() {
-        System.out.println("Stopping the Appium Server");
+    public static void stop() throws IOException {
         appium.stop();
     }
 }

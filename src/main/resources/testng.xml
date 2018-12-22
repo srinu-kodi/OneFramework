@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="tests">
+    <test name="E2E automation on Chrome">
+        <parameter name="platformType" value="web"/>
+        <parameter name="platformName" value="chrome"/>
+        <classes>
+            <class name="tests.HomePageTest"/>
+        </classes>
+    </test>
+
+    <test name="E2E automation on Firefox">
+        <parameter name="platformType" value="web"/>
+        <parameter name="platformName" value="firefox"/>
+        <classes>
+            <class name="tests.HomePageTest"/>
+        </classes>
+    </test>
+
+    <test name="E2E automation on Android">
+        <parameter name="platformType" value="mobile"/>
+        <parameter name="platformName" value="android"/>
+        <classes>
+            <class name="tests.HomePageTest"/>
+        </classes>
+    </test>
+
+    <test name="E2E automation on iPhone">
+        <parameter name="platformType" value="mobile"/>
+        <parameter name="platformName" value="iphone"/>
+        <classes>
+            <class name="tests.HomePageTest"/>
+        </classes>
+    </test>
+</suite>

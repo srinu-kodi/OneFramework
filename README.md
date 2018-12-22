@@ -23,9 +23,8 @@ We often tend to create different test frameworks for different platforms and it
 1. Appium
 2. Selenium WebDriver
 3. Java
-4. Cucumber-java, Cucumber-junit
-5. jUnit
-6. Gradle
+4. TestNG
+5. Gradle
 
 ## Prerequisites Installations
 
@@ -66,34 +65,27 @@ $ appium-doctor
 
 ## How This Framework Works
 
-This framework is built in Page Object Model style on Cucumber BDD framework.<br>
-We have one test runner which can handle all platforms and here is how we tag the scenarios for each platform.
-
- <b>`@web`</b> - web browser tests <br/>
- <b>`@android`</b> - android tests <br/>
- <b>`@ios`</b> - ios tests <br/>
- <b>`@ignore`</b> - ignore certain tests <br/>
+This framework is built in Page Object Model style using TestNG framework.<br>
+We have "testng.xml" file which has tests for each and every platform in cross browser/device testing fashion.
  
 ###### Here are the minimal things you have to do.
  
- - Write your own cucumber scenarios & its step definitions 
- - Creating Page Object classes with your Application page names (I already created some pages, you can take the reference)
+ - Create your tests 
+ - Create Page Object classes with your Application page names (I already created some org.oneframework.pageObjects, you can take the reference)
  - Page Object locators (You need to follow this framework notation when defining the locators for each platform)
- - Set Android driver details (Like API version, emulator name, APK path etc...)
- - Set iPhone/iPad driver details (Like OS version, simulator name, UDID, App path etc...)
+ - Set Android driver details (Like API version, emulator name, APK path etc...) in Android Builder
+ - Set iPhone/iPad driver details (Like OS version, simulator name, UDID, App path etc...) in iPhone Builder
+ - You need to set your android, iphone emulator/simulator details in respective builder files
  - Set web app URL
  
 ## How To Run Tests
 
 - Clone the repo using below command & open<br>
     `https://github.com/srinu-kodi/OneFramework.git`
-- Comment out the `test` task in build.gradle file & make gradle sync to download the dependencies.
-- Once dependencies are downloaded, uncomment the `test` task<br>
 
 ```
-$ gradle clean test -Pplatform=android
-$ gradle clean test -Pplatform=ios
-$ gradle clean test -Pplatform=web -Pbrowser=chrome
+$ gradle clean build
+$ java -jar build/libs/Automation-1.0-SNAPSHOT.jar
 ```
 
 ## Pending Tasks
@@ -101,7 +93,7 @@ $ gradle clean test -Pplatform=web -Pbrowser=chrome
 2. Parallel test execution
 3. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
 4. Recording of test execution
-5. Gradle tasking (Created one task for running the tests, few tasks are pending)<br>
+5. Image Comparison
 
 Moreover I will incorporate if anything pops up in mind, going forward.<br>
 
