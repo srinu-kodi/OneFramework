@@ -17,8 +17,6 @@ repositories {
 dependencies {
     compile group: 'io.appium', name: 'java-client', version: '6.0.0'
     compile group: 'org.testng', name: 'testng', version: '6.9.10'
-    testCompile group: 'info.cukes', name: 'cucumber-java', version: '4.2.0'
-    testCompile group: 'info.cukes', name: 'cucumber-junit', version: '4.2.0'
     compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '2.2.5'
 }
 
