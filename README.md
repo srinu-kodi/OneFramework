@@ -101,7 +101,8 @@ We have "testng.xml" file which has tests for each and every platform in cross b
 
 ```
 $ gradle clean build
-$ java -jar build/libs/Automation-1.0-SNAPSHOT.jar
+$ java -jar build/libs/Automation-1.0-SNAPSHOT.jar capture
+$ java -jar build/libs/Automation-1.0-SNAPSHOT.jar compare
 ```
 Once test execution is complete, allure-results directory gets generated.
 ## How To See Allure Result Report:

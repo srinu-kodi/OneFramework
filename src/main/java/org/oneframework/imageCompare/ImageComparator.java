@@ -13,6 +13,15 @@ import java.io.IOException;
 
 public class ImageComparator extends PageHelper {
     WebDriver driver;
+    public static boolean COMPARE = false;
+
+    public boolean shouldCompare() {
+        return COMPARE;
+    }
+
+    public void setCompare(boolean value) {
+        this.COMPARE = value;
+    }
 
     public ImageComparator(WebDriver driver) {
         this.driver = driver;
@@ -57,24 +66,29 @@ public class ImageComparator extends PageHelper {
 //    }
 
     public boolean compare(String imageName) throws IOException, InterruptedException {
-        boolean imageMatchFlag;
-        File actualImageFile = new File(imageName + "_actual.png");
-        Thread.sleep(3000);
-        BufferedImage actualImage = new AShot().takeScreenshot(driver).getImage();
-        ImageIO.write(actualImage, "png", actualImageFile);
-
-        File expectedImageFile = new File(imageName + ".png");
-        BufferedImage expectedImage = ImageIO.read(expectedImageFile);
-        ImageIO.write(expectedImage, "png", expectedImageFile);
-        ImageDiff diff = new ImageDiffer().makeDiff(expectedImage, actualImage);
-
-        if (diff.getDiffSize() > 0) {
-            BufferedImage diffImage = diff.getMarkedImage();
-            File outputDiffImage = new File(imageName + "_diffImage.png");
-            ImageIO.write(diffImage, "png", outputDiffImage);
-            imageMatchFlag = false;
-        } else {
+        boolean imageMatchFlag = false;
+        if (!ImageComparator.COMPARE) {
+            capture(imageName);
             imageMatchFlag = true;
+        } else {
+            File actualImageFile = new File(imageName + "_actual.png");
+            Thread.sleep(3000);
+            BufferedImage actualImage = new AShot().takeScreenshot(driver).getImage();
+            ImageIO.write(actualImage, "png", actualImageFile);
+
+            File expectedImageFile = new File(imageName + ".png");
+            BufferedImage expectedImage = ImageIO.read(expectedImageFile);
+            ImageIO.write(expectedImage, "png", expectedImageFile);
+            ImageDiff diff = new ImageDiffer().makeDiff(expectedImage, actualImage);
+
+            if (diff.getDiffSize() > 0) {
+                BufferedImage diffImage = diff.getMarkedImage();
+                File outputDiffImage = new File(imageName + "_diffImage.png");
+                ImageIO.write(diffImage, "png", outputDiffImage);
+                imageMatchFlag = false;
+            } else {
+                imageMatchFlag = true;
+            }
         }
         return imageMatchFlag;
     }
