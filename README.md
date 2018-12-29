@@ -111,7 +111,7 @@ I assume you have already installed allure on your machine. If not, install it. 
 $ allure serve <allure-results path>
 ```
 
-<img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1546104798/allureReportDashboard.png" width="400"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1546104798/allureReportGraph.png" width="400">
+<img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1546104798/allureReportDashboard.png" width="300"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1546104798/allureReportGraph.png" width="300"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1546104798/allureDetailExecutionReport.png" width="300" >
 
 ## Pending Tasks:
 
