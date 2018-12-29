@@ -33,7 +33,7 @@ public class ImageComparator extends PageHelper {
 //        FileUtils.copyFile(srcFile, destinationDir);
 //    }
 
-    public void capture(String imagePath) throws IOException {
+    public void capture(String imagePath) throws IOException, InterruptedException {
 //        File directory = new File(imagePath.split("/")[0]);
 //        File file = new File(imagePath.split("/")[1]);
 //        if (!directory.exists()) {
@@ -43,6 +43,7 @@ public class ImageComparator extends PageHelper {
 //        FileUtility.copyFileToDirectory(file, directory);
         File imageFile = new File(imagePath + ".png");
         BufferedImage image = new AShot().takeScreenshot(driver).getImage();
+        Thread.sleep(3000);
         ImageIO.write(image, "png", imageFile);
     }
 
@@ -55,9 +56,10 @@ public class ImageComparator extends PageHelper {
 //        return diff.getDiffSize();
 //    }
 
-    public boolean compare(String imageName) throws IOException {
+    public boolean compare(String imageName) throws IOException, InterruptedException {
         boolean imageMatchFlag;
         File actualImageFile = new File(imageName + "_actual.png");
+        Thread.sleep(3000);
         BufferedImage actualImage = new AShot().takeScreenshot(driver).getImage();
         ImageIO.write(actualImage, "png", actualImageFile);
 
