@@ -8,8 +8,9 @@ We often tend to create different test frameworks for different platforms and it
 
 <b>`FYI: I have taken WordPress app which is available on all platforms for automation.`</b>
 
-## Table of contents
+## Contents:
 
+* [Features](#features)
 * [Libraries Used](#libraries-used)
 * [Prerequisites Installations](#prerequisites-installations)
 * [Appium Setup](#appium-setup)
@@ -18,7 +19,14 @@ We often tend to create different test frameworks for different platforms and it
 * [Pending Tasks](#pending-tasks)
 * [How To Contribute?](#how-to-contribute)
 
-## Libraries Used
+## Features:
+
+* Cross platform(mobile & web) support with single codebase
+* TestNG integration
+* Image Comparison
+* Robust in nature
+
+## Libraries Used:
 
 1. Appium
 2. Selenium WebDriver
@@ -26,7 +34,7 @@ We often tend to create different test frameworks for different platforms and it
 4. TestNG
 5. Gradle
 
-## Prerequisites Installations
+## Prerequisites Installations:
 
 1. `JAVA 1.8`<br>
     Install Java and set the JAVA_HOME path on your machine.
@@ -45,7 +53,7 @@ We often tend to create different test frameworks for different platforms and it
 5.  `iOS`<br>
     Install XCode on your machine and download required iPhone/iPad simulators
 
-## Appium Setup
+## Appium Setup:
 
 - Once Node is installed, install appium using below command.<br>
 <b>`Note: Since Appium is a node server, so you need appium(node package) installed on your machine and below is the command for the same.`</b>
@@ -63,12 +71,12 @@ $ appium-doctor
  
 <b>`Note: You may ignore "Bin directory for $JAVA_HOME is not set" error, if it shows up. But except this everything should OKAY`</b>
 
-## How This Framework Works
+## How This Framework Works:
 
 This framework is built in Page Object Model style using TestNG framework.<br>
 We have "testng.xml" file which has tests for each and every platform in cross browser/device testing fashion.
  
-###### Here are the minimal things you have to do.
+###### Here are the minimal things you have to do:
  
  - Create your tests 
  - Create Page Object classes with your Application page names (I already created some org.oneframework.pageObjects, you can take the reference)
@@ -78,7 +86,7 @@ We have "testng.xml" file which has tests for each and every platform in cross b
  - You need to set your android, iphone emulator/simulator details in respective builder files
  - Set web app URL
  
-## How To Run Tests
+## How To Run Tests:
 
 - Clone the repo using below command & open<br>
     `https://github.com/srinu-kodi/OneFramework.git`
@@ -88,12 +96,12 @@ $ gradle clean build
 $ java -jar build/libs/Automation-1.0-SNAPSHOT.jar
 ```
 
-## Pending Tasks
+## Pending Tasks:
 1. Proper logging at each step
 2. Parallel test execution
 3. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
 4. Recording of test execution
-5. Image Comparison
+5. Allure Reporting
 
 Moreover I will incorporate if anything pops up in mind, going forward.<br>
 
