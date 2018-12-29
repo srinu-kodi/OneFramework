@@ -18,4 +18,15 @@ public class FileUtility {
             return new File(fileName);
         }
     }
+
+    public static void createDirectoryIfNotExist(File directory) {
+        if (!directory.exists()) {
+            File dir = new File("./" + directory);
+            dir.mkdirs();
+        }
+    }
+
+    public static void copyFileToDirectory(File file, File directory) throws IOException {
+        FileUtils.copyFileToDirectory(file, directory, true);
+    }
 }

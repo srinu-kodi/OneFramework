@@ -10,27 +10,27 @@
         </classes>
     </test>
 
-    <test name="E2E automation on Firefox">
-        <parameter name="platformType" value="web"/>
-        <parameter name="platformName" value="firefox"/>
-        <classes>
-            <class name="tests.HomePageTest"/>
-        </classes>
-    </test>
+    <!--<test name="E2E automation on Firefox">-->
+        <!--<parameter name="platformType" value="web"/>-->
+        <!--<parameter name="platformName" value="firefox"/>-->
+        <!--<classes>-->
+            <!--<class name="tests.HomePageTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 
-    <test name="E2E automation on Android">
-        <parameter name="platformType" value="mobile"/>
-        <parameter name="platformName" value="android"/>
-        <classes>
-            <class name="tests.HomePageTest"/>
-        </classes>
-    </test>
+    <!--<test name="E2E automation on Android">-->
+        <!--<parameter name="platformType" value="mobile"/>-->
+        <!--<parameter name="platformName" value="android"/>-->
+        <!--<classes>-->
+            <!--<class name="tests.HomePageTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 
-    <test name="E2E automation on iPhone">
-        <parameter name="platformType" value="mobile"/>
-        <parameter name="platformName" value="iphone"/>
-        <classes>
-            <class name="tests.HomePageTest"/>
-        </classes>
-    </test>
+    <!--<test name="E2E automation on iPhone">-->
+        <!--<parameter name="platformType" value="mobile"/>-->
+        <!--<parameter name="platformName" value="iphone"/>-->
+        <!--<classes>-->
+            <!--<class name="tests.HomePageTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

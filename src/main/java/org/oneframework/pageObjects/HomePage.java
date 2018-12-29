@@ -13,7 +13,7 @@ public class HomePage extends PageHelper {
     HashMap<String, HashMap> eleSignInBtn = new HashMap<>();
     HashMap<String, HashMap> eleSignUpBtn = new HashMap<>();
 
-    public HomePage(WebDriver driver) {
+    public HomePage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         PageFactory.initElements(driver, this);
 
@@ -23,8 +23,8 @@ public class HomePage extends PageHelper {
 
         eleSignUpBtn.put("android", new HashMap(){{put("id", "create_site_button");}});
         eleSignUpBtn.put("ios", new HashMap(){{put("id", "Sign up for WordPress.com Button");}});
-        eleSignUpBtn.put("web", new HashMap(){{put("id", "hero-cta");}});
-
+        eleSignUpBtn.put("web", new HashMap(){{put("xpath", "//a[@title='Get Started']");}});
+        Thread.sleep(1000);
     }
 
     public SignInPage chooseSignInOption() throws Exception {

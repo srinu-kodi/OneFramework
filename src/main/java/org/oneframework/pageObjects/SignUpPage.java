@@ -11,12 +11,13 @@ public class SignUpPage extends PageHelper {
     WebDriver driver;
     HashMap<String, HashMap> elePageTitle = new HashMap<>();
 
-    public SignUpPage(WebDriver driver) {
+    public SignUpPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         elePageTitle.put("android", new HashMap(){{put("id", "label");}});
         elePageTitle.put("ios", new HashMap(){{put("id", "Log in to WordPress.com using an email address to manage all your WordPress sites.");}});
         elePageTitle.put("web", new HashMap(){{put("xpath", "//div[@class='login__form-header']");}});
+        Thread.sleep(1000);
     }
 
     public String getTitle() throws Exception {
