@@ -22,8 +22,10 @@ We often tend to create different test frameworks for different platforms and it
 ## Features:
 
 * Cross platform(mobile & web) support with single codebase
+* Page Object Model
 * TestNG integration
 * Image Comparison
+* Allure Reporting
 * Robust in nature
 
 ## Libraries Used:
@@ -33,6 +35,9 @@ We often tend to create different test frameworks for different platforms and it
 3. Java
 4. TestNG
 5. Gradle
+6. WebDriverManager
+7. AShot
+8. Allure Report
 
 ## Prerequisites Installations:
 
@@ -52,6 +57,9 @@ We often tend to create different test frameworks for different platforms and it
        4. Intel HAXM installer etc.....
 5.  `iOS`<br>
     Install XCode on your machine and download required iPhone/iPad simulators
+6.  `Allure Report`<br>
+    Install Allure Report library on your machine. Please follow below link to install
+    https://docs.qameta.io/allure/#_installing_a_commandline
 
 ## Appium Setup:
 
@@ -95,14 +103,21 @@ We have "testng.xml" file which has tests for each and every platform in cross b
 $ gradle clean build
 $ java -jar build/libs/Automation-1.0-SNAPSHOT.jar
 ```
+Once test execution is complete, allure-results directory gets generated.
+## How To See Allure Result Report:
+
+I assume you have already installed allure on your machine. If not, install it. If yes, run below command to see the report.
+```
+$ allure serve <allure-results path>
+```
 
 ## Pending Tasks:
-1. Image masking on certain co-ordinates 
+
+1. Image masking on certain co-ordinates
 2. Proper logging at each step
 3. Parallel test execution
 4. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
 5. Recording of test execution
-6. Allure Reporting
 
 Moreover I will incorporate if anything pops up in mind, going forward.<br>
 
