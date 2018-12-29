@@ -97,11 +97,12 @@ $ java -jar build/libs/Automation-1.0-SNAPSHOT.jar
 ```
 
 ## Pending Tasks:
-1. Proper logging at each step
-2. Parallel test execution
-3. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
-4. Recording of test execution
-5. Allure Reporting
+1. Image masking on certain co-ordinates 
+2. Proper logging at each step
+3. Parallel test execution
+4. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
+5. Recording of test execution
+6. Allure Reporting
 
 Moreover I will incorporate if anything pops up in mind, going forward.<br>
 
