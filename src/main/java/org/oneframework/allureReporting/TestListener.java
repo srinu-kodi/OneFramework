@@ -17,17 +17,17 @@ public class TestListener extends BaseTest implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        System.out.println("TEST START: "+iTestResult.getMethod().getMethodName());
+        System.out.println("TEST START: "+iTestResult.getMethod().getMethodName()+" - "+iTestResult.getMethod().getDescription());
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        System.out.println("TEST PASS: "+iTestResult.getMethod().getMethodName());
+        System.out.println("TEST PASS: "+iTestResult.getMethod().getMethodName()+" - "+iTestResult.getMethod().getDescription());
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.println("TEST FAIL: "+iTestResult.getMethod().getMethodName());
+        System.out.println("TEST FAIL: "+iTestResult.getMethod().getMethodName()+" - "+iTestResult.getMethod().getDescription());
         Object testClass = iTestResult.getInstance();
         WebDriver driver = ((BaseTest)testClass).driver;
         saveScreenshot(driver, iTestResult);
@@ -35,12 +35,12 @@ public class TestListener extends BaseTest implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-        System.out.println("TEST SKIP: "+iTestResult.getMethod().getMethodName());
+        System.out.println("TEST SKIP: "+iTestResult.getMethod().getMethodName()+" - "+iTestResult.getMethod().getDescription());
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-        System.out.println("TEST FAIL WITH BUSINESS REQ: "+iTestResult.getMethod().getMethodName());
+        System.out.println("TEST FAIL WITH BUSINESS REQ: "+iTestResult.getMethod().getMethodName()+" - "+iTestResult.getMethod().getDescription());
     }
 
     @Override
@@ -56,6 +56,5 @@ public class TestListener extends BaseTest implements ITestListener {
     @Attachment(value = "Actual Screenshot", type = "image/png")
     public void saveScreenshot(WebDriver driver, ITestResult iTestResult) {
         ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-
     }
 }
