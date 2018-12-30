@@ -13,6 +13,7 @@ public class HomePage extends PageHelper {
     HashMap<String, HashMap> eleSignInBtn = new HashMap<>();
     HashMap<String, HashMap> eleSignUpBtn = new HashMap<>();
 
+
     public HomePage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -29,6 +30,7 @@ public class HomePage extends PageHelper {
 
     public SignInPage chooseSignInOption() throws Exception {
         clickElement(driver,eleSignInBtn);
+        new SignInPage(driver).clickOnSignInTitle();
         return new SignInPage(driver);
     }
 
