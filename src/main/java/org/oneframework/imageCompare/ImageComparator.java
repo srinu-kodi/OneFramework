@@ -1,5 +1,7 @@
 package org.oneframework.imageCompare;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.oneframework.pageHelpers.PageHelper;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.ashot.AShot;
@@ -43,27 +45,16 @@ public class ImageComparator extends PageHelper {
 //    }
 
     public void capture(String imagePath) throws IOException, InterruptedException {
-//        File directory = new File(imagePath.split("/")[0]);
-//        File file = new File(imagePath.split("/")[1]);
-//        if (!directory.exists()) {
-//            directory.mkdir();
-//        }
-//        FileUtility.createDirectoryIfNotExist(directory);
-//        FileUtility.copyFileToDirectory(file, directory);
         File imageFile = new File(imagePath + ".png");
         BufferedImage image = new AShot().takeScreenshot(driver).getImage();
+        if (driver instanceof IOSDriver) {
+            image = image.getSubimage(0, 48, 740, 1280);
+        } else if (driver instanceof AndroidDriver) {
+            image = image.getSubimage(0, 64, 1080, 1728);
+        }
         Thread.sleep(3000);
         ImageIO.write(image, "png", imageFile);
     }
-
-//    public int compare(BufferedImage expectedImage, BufferedImage actualImage) throws IOException {
-//        BufferedImage image = new AShot().takeScreenshot(driver).getImage();
-//        ImageDiff diff = new ImageDiffer().makeDiff(expectedImage, actualImage);
-//        BufferedImage diffImage = diff.getMarkedImage();
-//        File outputDiffImage = new File("diffImage.png");
-//        ImageIO.write(diffImage, "png", outputDiffImage);
-//        return diff.getDiffSize();
-//    }
 
     public boolean compare(String imageName) throws IOException, InterruptedException {
         boolean imageMatchFlag = false;
