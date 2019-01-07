@@ -13,6 +13,7 @@ public class HomePageTest extends BaseTest {
     @Test(description = "testing the signin page visually")
     public void testSignInOption() throws Exception {
         HomePage homePage = new HomePage(driver);
+        Assert.assertTrue(new ImageComparator(driver).compare("homePage"), "homePage baseline image isn't matching with actual image.");
         homePage.chooseSignInOption();
         Assert.assertTrue(new ImageComparator(driver).compare("signinPage"), "signinPage baseline image isn't matching with actual image.");
     }

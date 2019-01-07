@@ -19,7 +19,9 @@ public class SignInPage extends PageHelper {
         elePageTitle.put("ios", new HashMap(){{put("id", "Log in to WordPress.com using an email address to manage all your WordPress sites.");}});
         elePageTitle.put("web", new HashMap(){{put("xpath", "//div[@class='login__form-header']");}});
 
-        eleSignInTitle.put("web", new HashMap(){{put("xpath", "//div[contains(text(), 'Log in to your account.')]");}});
+        eleSignInTitle.put("web", new HashMap(){{put("xpath", "//div[contains(text(), 'Log in to')]");}});
+        eleSignInTitle.put("ios", new HashMap(){{put("xpath", "//XCUIElementTypeStaticText[contains(@label, 'Log in to WordPress.com using an email address to manage all your WordPress sites.')]");}});
+        eleSignInTitle.put("android", new HashMap(){{put("id", "label");}});
         Thread.sleep(1000);
     }
 

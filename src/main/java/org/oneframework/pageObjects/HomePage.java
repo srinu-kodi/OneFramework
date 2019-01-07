@@ -19,7 +19,7 @@ public class HomePage extends PageHelper {
         PageFactory.initElements(driver, this);
 
         eleSignInBtn.put("android", new HashMap(){{put("id", "login_button");}});
-        eleSignInBtn.put("ios", new HashMap(){{put("id", "Log In Button");}});
+        eleSignInBtn.put("ios", new HashMap(){{put("xpath", "//XCUIElementTypeButton[contains(@label, 'Log In')]");}});
         eleSignInBtn.put("web", new HashMap(){{put("xpath", "//a[@title='Log In'][1]");}});
 
         eleSignUpBtn.put("android", new HashMap(){{put("id", "create_site_button");}});

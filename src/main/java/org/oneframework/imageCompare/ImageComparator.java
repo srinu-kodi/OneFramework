@@ -17,32 +17,9 @@ public class ImageComparator extends PageHelper {
     WebDriver driver;
     public static boolean COMPARE = false;
 
-    public boolean shouldCompare() {
-        return COMPARE;
-    }
-
-    public void setCompare(boolean value) {
-        this.COMPARE = value;
-    }
-
     public ImageComparator(WebDriver driver) {
         this.driver = driver;
     }
-
-//    private void createImageDirectory(String imagePath) {
-//        String[] strArray = imagePath.split("/");
-//        String directoryName = strArray[0];
-//        new File(directoryName).mkdir();
-//    }
-
-//    private void copyImageFileIntoDirectory(String imagePath) throws IOException {
-//        FileOutputStream fos = new FileOutputStream("./file.txt");
-//        String[] strArray = imagePath.split("/");
-//        //new File(strArray[0]).mkdir();
-//        File srcFile = new File(strArray[1]);
-//        File destinationDir = new File(strArray[0]);
-//        FileUtils.copyFile(srcFile, destinationDir);
-//    }
 
     public void capture(String imagePath) throws IOException, InterruptedException {
         File imageFile = new File(imagePath + ".png");
@@ -52,7 +29,6 @@ public class ImageComparator extends PageHelper {
         } else if (driver instanceof AndroidDriver) {
             image = image.getSubimage(0, 64, 1080, 1728);
         }
-        Thread.sleep(3000);
         ImageIO.write(image, "png", imageFile);
     }
 
@@ -63,8 +39,12 @@ public class ImageComparator extends PageHelper {
             imageMatchFlag = true;
         } else {
             File actualImageFile = new File(imageName + "_actual.png");
-            Thread.sleep(3000);
             BufferedImage actualImage = new AShot().takeScreenshot(driver).getImage();
+            if (driver instanceof IOSDriver) {
+                actualImage = actualImage.getSubimage(0, 48, 740, 1280);
+            } else if (driver instanceof AndroidDriver) {
+                actualImage = actualImage.getSubimage(0, 64, 1080, 1728);
+            }
             ImageIO.write(actualImage, "png", actualImageFile);
 
             File expectedImageFile = new File(imageName + ".png");
