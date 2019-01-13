@@ -43,7 +43,7 @@ public class BaseTest {
         }
     }
 
-    public void setupMobileDriver(String platformName) throws MalformedURLException {
+    public void setupMobileDriver(String platformName) throws IOException {
         if (platformName.equalsIgnoreCase("android")) {
             driver = new AndroidBuilder().setupDriver();
         } else if (platformName.equalsIgnoreCase("iphone")) {
