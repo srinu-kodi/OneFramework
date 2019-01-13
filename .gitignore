@@ -13,3 +13,5 @@ src/test/test.iml
 appiumServerLog.txt
 test-output/
 allure-results/
+WordPress.zip
+testng.xml
