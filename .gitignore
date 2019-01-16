@@ -14,4 +14,5 @@ appiumServerLog.txt
 test-output/
 allure-results/
 WordPress.zip
+WordPress.apk
 testng.xml

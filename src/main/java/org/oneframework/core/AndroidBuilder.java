@@ -2,8 +2,8 @@ package org.oneframework.core;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
-import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.oneframework.config.DeviceConfig;
 import org.oneframework.utils.FileUtility;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -16,16 +16,15 @@ public class AndroidBuilder {
 
     public AndroidDriver setupDriver() throws IOException {
         DesiredCapabilities androidCapabilities = new DesiredCapabilities();
-        androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
-        androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        androidCapabilities.setCapability(MobileCapabilityType.APP, FileUtility.getFile("WordPress.apk").getAbsolutePath());
-        androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1");
-        androidCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
-        androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "org.wordpress.android");
-        androidCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-        androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "org.wordpress.android.ui.WPLaunchActivity");
+        androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DeviceConfig.getAndroid().getDeviceName());
+        androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, DeviceConfig.getAndroid().getPlatformName());
+        androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, DeviceConfig.getAndroid().getPlatformVersion());
+        androidCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, DeviceConfig.getAndroid().getAutomationName());
+        androidCapabilities.setCapability(MobileCapabilityType.NO_RESET, DeviceConfig.getAndroid().isReset());
+        androidCapabilities.setCapability(MobileCapabilityType.APP, FileUtility.getFile(DeviceConfig.getAndroid().getApp()).getAbsolutePath());
+        androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, DeviceConfig.getAndroid().getPackageName());
+        androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, DeviceConfig.getAndroid().getActivity());
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), androidCapabilities);
-        //WebDriverWait androidWait = new WebDriverWait(driver, 60);
         return driver;
     }
 }
