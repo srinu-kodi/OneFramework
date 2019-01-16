@@ -16,5 +16,5 @@ allure-results/
 WordPress.zip
 WordPress.apk
 testng.xml
-androidDevice.json
-iosDevice.json
+!src/main/resources/androidDevice.json
+!src/main/resources/iosDevice.json

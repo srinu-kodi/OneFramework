@@ -1,0 +1,38 @@
+{
+  "iphone6s": {
+    "deviceName": "iPhone 6s",
+    "platformName": "iOS",
+    "platformVersion": "11.4",
+    "automationName": "XCuiTest",
+    "udid": "B9072B66-ABFA-47C2-B0F7-55D40EF4D5F5",
+    "reset": true,
+    "app": "WordPress.zip"
+  },
+  "iphone6": {
+    "deviceName": "iPhone 6",
+    "platformName": "iOS",
+    "platformVersion": "11.4",
+    "automationName": "XCuiTest",
+    "udid": "B9072B66-ABFA-47C2-B0F7-55D40EF4D5F6",
+    "reset": true,
+    "app": "WordPress.zip"
+  },
+  "ipadAir": {
+    "deviceName": "iPad Air",
+    "platformName": "iOS",
+    "platformVersion": "11.4",
+    "automationName": "XCuiTest",
+    "udid": "B9072B66-ABFA-47C2-B0F7-55D40EF4D5F7",
+    "reset": true,
+    "app": "WordPress.zip"
+  },
+  "ipadAir2": {
+    "deviceName": "iPad Air2",
+    "platformName": "iOS",
+    "platformVersion": "11.4",
+    "automationName": "XCuiTest",
+    "udid": "B9072B66-ABFA-47C2-B0F7-55D40EF4D5F8",
+    "reset": true,
+    "app": "WordPress.zip"
+  }
+}
