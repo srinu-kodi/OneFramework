@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Suite" parallel="false">
-    <!--<test name="E2E automation on Chrome">-->
-        <!--<parameter name="platformType" value="web"/>-->
-        <!--<parameter name="platformName" value="chrome"/>-->
-        <!--<classes>-->
-            <!--<class name="tests.HomePageTest"/>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <!--<test name="E2E automation on Firefox">-->
-        <!--<parameter name="platformType" value="web"/>-->
-        <!--<parameter name="platformName" value="firefox"/>-->
-        <!--<classes>-->
-            <!--<class name="tests.HomePageTest"/>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <!--<test name="E2E automation on Android">-->
-        <!--<parameter name="platformType" value="mobile"/>-->
-        <!--<parameter name="platformName" value="android"/>-->
-        <!--<classes>-->
-            <!--<class name="tests.HomePageTest"/>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <test name="E2E automation on iPhone">
-        <parameter name="platformType" value="mobile"/>
-        <parameter name="platformName" value="iphone"/>
+<suite name="Test Execution" parallel="none">
+    <test name="E2E Test Suite On Web - Chrome">
+        <parameter name="platformType" value="web"/>
+        <parameter name="platformName" value="chrome"/>
         <classes>
             <class name="tests.HomePageTest"/>
         </classes>
     </test>
+
+    <test name="E2E Test Suite On Web - Firefox">
+        <parameter name="platformType" value="web"/>
+        <parameter name="platformName" value="firefox"/>
+        <classes>
+            <class name="tests.HomePageTest"/>
+        </classes>
+    </test>
+
+    <!--<test name="E2E Test Suite On Android - Pixel">-->
+        <!--<parameter name="platformType" value="mobile"/>-->
+        <!--<parameter name="platformName" value="android"/>-->
+        <!--<parameter name="model" value="pixel"/>-->
+        <!--<classes>-->
+            <!--<class name="tests.HomePageTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <!--<test name="E2E Test Suite On iOS - iPhone6S">-->
+        <!--<parameter name="platformType" value="mobile"/>-->
+        <!--<parameter name="platformName" value="iphone"/>-->
+        <!--<parameter name="model" value="iphone6s"/>-->
+        <!--<classes>-->
+            <!--<class name="tests.HomePageTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

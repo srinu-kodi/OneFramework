@@ -1,6 +1,6 @@
 package org.oneframework.config;
 
-public class IPadPojo {
+public class IosPojo {
     private String deviceName;
     private String platformName;
     private String platformVersion;
@@ -8,7 +8,7 @@ public class IPadPojo {
     private String udid;
     private String app;
     private boolean reset;
-    private IPadPojo ipad;
+    private IosPojo iphone6s, iphone6, ipadAir, ipadAir2;
 
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
@@ -66,8 +66,20 @@ public class IPadPojo {
         return reset;
     }
 
-    public IPadPojo getIpad() {
-        return ipad;
+    public IosPojo getIphone6s() {
+        return iphone6s;
+    }
+
+    public IosPojo getIphone6() {
+        return iphone6;
+    }
+
+    public IosPojo getIpadAir() {
+        return ipadAir;
+    }
+
+    public IosPojo getIpadAir2() {
+        return ipadAir2;
     }
 
 }

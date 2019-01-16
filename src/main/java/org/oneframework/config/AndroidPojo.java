@@ -9,7 +9,39 @@ public class AndroidPojo {
     private String activity;
     private String app;
     private boolean reset;
-    private AndroidPojo android;
+    private AndroidPojo nexus, pixel;
+
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
+
+    public void setPlatformName(String platformName) {
+        this.platformName = platformName;
+    }
+
+    public void setPlatformVersion(String platformVersion) {
+        this.platformVersion = platformVersion;
+    }
+
+    public void setAutomationName(String automationName) {
+        this.automationName = automationName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
+    public void setApp(String app) {
+        this.app = app;
+    }
+
+    public void setReset(boolean reset) {
+        this.reset = reset;
+    }
 
     public String getDeviceName() {
         return deviceName;
@@ -43,8 +75,12 @@ public class AndroidPojo {
         return reset;
     }
 
-    public AndroidPojo getAndroid() {
-        return android;
+    public AndroidPojo getNexus() {
+        return nexus;
+    }
+
+    public AndroidPojo getPixel() {
+        return pixel;
     }
 
 }

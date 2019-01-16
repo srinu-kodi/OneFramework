@@ -3,6 +3,7 @@ package org.oneframework.core;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.oneframework.config.DeviceConfig;
+import org.oneframework.config.IosPojo;
 import org.oneframework.utils.FileUtility;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -13,15 +14,17 @@ public class IPhoneBuilder {
 
     IOSDriver driver;
 
-    public IOSDriver setupDriver() throws IOException {
+    public IOSDriver setupDriver(String model) throws IOException {
         DesiredCapabilities iosCapabilities = new DesiredCapabilities();
-        iosCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, DeviceConfig.getIPhone().getDeviceName());
-        iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, DeviceConfig.getIPhone().getPlatformName());
-        iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, DeviceConfig.getIPhone().getPlatformVersion());
-        iosCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, DeviceConfig.getIPhone().getAutomationName());
-        iosCapabilities.setCapability(MobileCapabilityType.UDID, DeviceConfig.getIPhone().getUdid());
-        iosCapabilities.setCapability(MobileCapabilityType.NO_RESET, DeviceConfig.getIPhone().isReset());
-        iosCapabilities.setCapability(MobileCapabilityType.APP, FileUtility.getFile(DeviceConfig.getIPhone().getApp()).getAbsolutePath());
+        IosPojo device = DeviceConfig.getIOSDevice(model);
+
+        iosCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
+        iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, device.getPlatformName());
+        iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, device.getPlatformVersion());
+        iosCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, device.getAutomationName());
+        iosCapabilities.setCapability(MobileCapabilityType.UDID, device.getUdid());
+        iosCapabilities.setCapability(MobileCapabilityType.NO_RESET, device.isReset());
+        iosCapabilities.setCapability(MobileCapabilityType.APP, FileUtility.getFile(device.getApp()).getAbsolutePath());
         driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
         return driver;
     }

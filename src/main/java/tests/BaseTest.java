@@ -33,21 +33,21 @@ public class BaseTest {
         }
     }
 
-    @Parameters({"platformType", "platformName"})
+    @Parameters({"platformType", "platformName", "model"})
     @BeforeMethod
-    public void setupDriver(String platformType, String platformName) throws IOException {
+    public void setupDriver(String platformType, String platformName, @Optional String model) throws IOException {
         if (platformType.equalsIgnoreCase("web")) {
             setupWebDriver(platformName);
         } else if (platformType.equalsIgnoreCase("mobile")) {
-            setupMobileDriver(platformName);
+            setupMobileDriver(platformName, model);
         }
     }
 
-    public void setupMobileDriver(String platformName) throws IOException {
+    public void setupMobileDriver(String platformName, String model) throws IOException {
         if (platformName.equalsIgnoreCase("android")) {
-            driver = new AndroidBuilder().setupDriver();
+            driver = new AndroidBuilder().setupDriver(model);
         } else if (platformName.equalsIgnoreCase("iphone")) {
-            driver = new IPhoneBuilder().setupDriver();
+            driver = new IPhoneBuilder().setupDriver(model);
         }
     }
 

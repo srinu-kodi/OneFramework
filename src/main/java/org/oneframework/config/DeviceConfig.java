@@ -1,30 +1,40 @@
 package org.oneframework.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
+import org.oneframework.utils.FileUtility;
 
-import java.io.File;
 import java.io.IOException;
 
 public class DeviceConfig {
-    public static IPhonePojo iphonePojo;
-    public static IPadPojo ipadPojo;
+    public static IosPojo iosPojo;
     public static AndroidPojo androidPojo;
 
-    public static IPhonePojo getIPhone() throws IOException {
+    public static IosPojo getIOSDevice(String model) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        iphonePojo = objectMapper.readValue(new File("/Users/srinuk/Documents/Srinu/Playground/OneFramework/src/main/java/org/oneframework/config/iphoneDriver.json"), IPhonePojo.class);
-        return iphonePojo.getIphone();
+        iosPojo = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("iosDevice.json").getAbsolutePath()), IosPojo.class);
+        if (model.equalsIgnoreCase(DeviceModel.IPHONE6.toString())) {
+            return iosPojo.getIphone6();
+        } else if (model.equalsIgnoreCase(DeviceModel.IPHONE6S.toString())) {
+            return iosPojo.getIphone6s();
+        } else if (model.equalsIgnoreCase(DeviceModel.IPADAIR.toString())) {
+            return iosPojo.getIpadAir();
+        } else if (model.equalsIgnoreCase(DeviceModel.IPADAIR2.toString())) {
+            return iosPojo.getIpadAir2();
+        } else {
+            return null;
+        }
     }
 
-    public static IPadPojo getIPad() throws IOException {
+    public static AndroidPojo getAndroidDevice(String model) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        ipadPojo = objectMapper.readValue(new File("/Users/srinuk/Documents/Srinu/Playground/OneFramework/src/main/java/org/oneframework/config/ipadDriver.json"), IPadPojo.class);
-        return ipadPojo.getIpad();
-    }
-
-    public static AndroidPojo getAndroid() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        androidPojo = objectMapper.readValue(new File("/Users/srinuk/Documents/Srinu/Playground/OneFramework/src/main/java/org/oneframework/config/androidDriver.json"), AndroidPojo.class);
-        return androidPojo.getAndroid();
+        androidPojo = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("androidDevice.json").getAbsolutePath()), AndroidPojo.class);
+        if (model.equalsIgnoreCase(DeviceModel.NEXUS.toString())) {
+            return androidPojo.getNexus();
+        } else if (model.equalsIgnoreCase(DeviceModel.PIXEL.toString())) {
+            return androidPojo.getPixel();
+        } else {
+            return null;
+        }
     }
 }
