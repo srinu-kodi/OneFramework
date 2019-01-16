@@ -1,6 +1,6 @@
 package tests;
 
-import org.oneframework.allureReporting.TestListener;
+import org.oneframework.allureReport.TestListener;
 import org.oneframework.imageCompare.ImageComparator;
 import org.oneframework.pageObjects.HomePage;
 import org.testng.*;

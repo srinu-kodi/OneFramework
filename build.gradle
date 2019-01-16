@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'org.oneframework.runners.TestRunner'
+mainClassName = 'org.oneframework.runner.TestRunner'
 
 group 'OneFramework'
 version '1.0-SNAPSHOT'
@@ -21,7 +21,6 @@ dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile 'ru.yandex.qatools.ashot:ashot:1.5.2'
     compile 'io.qameta.allure:allure-testng:2.0-BETA14'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
 }
 
 jar {

@@ -2,7 +2,7 @@ package org.oneframework.imageCompare;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import org.oneframework.pageHelpers.PageHelper;
+import org.oneframework.helpers.Page;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
@@ -13,7 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class ImageComparator extends PageHelper {
+public class ImageComparator extends Page {
     WebDriver driver;
     public static boolean COMPARE = false;
 
@@ -21,8 +21,8 @@ public class ImageComparator extends PageHelper {
         this.driver = driver;
     }
 
-    public void capture(String imagePath) throws IOException, InterruptedException {
-        File imageFile = new File(imagePath + ".png");
+    public void capture(String imageName) throws IOException, InterruptedException {
+        File imageFile = new File(imageName + ".png");
         BufferedImage image = new AShot().takeScreenshot(driver).getImage();
         if (driver instanceof IOSDriver) {
             image = image.getSubimage(0, 48, 740, 1280);

@@ -1,12 +1,12 @@
 package org.oneframework.pageObjects;
 
-import org.oneframework.pageHelpers.PageHelper;
+import org.oneframework.helpers.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.HashMap;
 
-public class SignInPage extends PageHelper {
+public class SignInPage extends Page {
 
     WebDriver driver;
     HashMap<String, HashMap> elePageTitle = new HashMap<>();

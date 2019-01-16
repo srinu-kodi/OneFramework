@@ -1,9 +1,9 @@
 package tests;
 
-import org.oneframework.core.AndroidBuilder;
-import org.oneframework.core.AppiumServer;
-import org.oneframework.core.IPhoneBuilder;
-import org.oneframework.core.WebDriverBuilder;
+import org.oneframework.drivers.AndroidBuilder;
+import org.oneframework.appium.AppiumServer;
+import org.oneframework.drivers.IPhoneBuilder;
+import org.oneframework.drivers.WebDriverBuilder;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
