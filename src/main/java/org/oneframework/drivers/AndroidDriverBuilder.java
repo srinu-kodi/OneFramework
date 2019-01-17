@@ -11,7 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.IOException;
 import java.net.URL;
 
-public class AndroidBuilder {
+public class AndroidDriverBuilder {
 
     AndroidDriver driver;
 

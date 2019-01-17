@@ -1,8 +1,8 @@
 package tests;
 
-import org.oneframework.drivers.AndroidBuilder;
+import org.oneframework.drivers.AndroidDriverBuilder;
 import org.oneframework.appium.AppiumServer;
-import org.oneframework.drivers.IPhoneBuilder;
+import org.oneframework.drivers.IOSDriverBuilder;
 import org.oneframework.drivers.WebDriverBuilder;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
@@ -45,9 +45,9 @@ public class BaseTest {
 
     public void setupMobileDriver(String platformName, String model) throws IOException {
         if (platformName.equalsIgnoreCase("android")) {
-            driver = new AndroidBuilder().setupDriver(model);
+            driver = new AndroidDriverBuilder().setupDriver(model);
         } else if (platformName.equalsIgnoreCase("iphone")) {
-            driver = new IPhoneBuilder().setupDriver(model);
+            driver = new IOSDriverBuilder().setupDriver(model);
         }
     }
 

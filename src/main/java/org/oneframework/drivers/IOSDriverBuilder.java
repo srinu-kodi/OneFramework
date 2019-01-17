@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.IOException;
 import java.net.URL;
 
-public class IPhoneBuilder {
+public class IOSDriverBuilder {
 
     IOSDriver driver;
 
