@@ -10,11 +10,10 @@ gradlew
 gradlew.bat
 src/main/main.iml
 src/test/test.iml
-appiumServerLog.txt
 test-output/
 allure-results/
-WordPress.zip
-WordPress.apk
-testng.xml
+!src/main/resources/WordPress.zip
+!src/main/resources/WordPress.apk
+!src/main/resources/testng.xml
 !src/main/resources/androidDevice.json
 !src/main/resources/iosDevice.json
