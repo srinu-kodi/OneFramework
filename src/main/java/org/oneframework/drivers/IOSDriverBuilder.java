@@ -3,20 +3,21 @@ package org.oneframework.drivers;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.oneframework.config.DeviceConfig;
-import org.oneframework.config.IosPojo;
+import org.oneframework.config.IOSDeviceModel;
 import org.oneframework.utils.FileUtility;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.IOException;
 import java.net.URL;
 
-public class IOSDriverBuilder {
+public class IOSDriverBuilder extends DeviceConfig {
 
     IOSDriver driver;
 
     public IOSDriver setupDriver(String model) throws IOException {
         DesiredCapabilities iosCapabilities = new DesiredCapabilities();
-        IosPojo device = DeviceConfig.getIOSDevice(model);
+        IOSDeviceModel device = getIOSDevice(model);
+        setPlatformModelName(model);
 
         iosCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
         iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, device.getPlatformName());

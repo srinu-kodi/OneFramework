@@ -25,6 +25,11 @@ public class FileUtility {
     }
 
     public static void copyFileToDirectory(File file, File directory) throws IOException {
+        createDirectoryIfNotExist(directory);
         FileUtils.copyFileToDirectory(file, directory, true);
+    }
+
+    public static void forceDelete(File file) throws IOException {
+        file.delete();
     }
 }

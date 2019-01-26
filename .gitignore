@@ -12,8 +12,15 @@ src/main/main.iml
 src/test/test.iml
 test-output/
 allure-results/
+WordPress.zip
 !src/main/resources/WordPress.zip
+WordPress.apk
 !src/main/resources/WordPress.apk
+testng.xml
 !src/main/resources/testng.xml
+androidDevice.json
 !src/main/resources/androidDevice.json
+iosDevice.json
 !src/main/resources/iosDevice.json
+baselineImages/
+!src/main/resources/baselineImages/

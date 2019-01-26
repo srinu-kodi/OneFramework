@@ -3,7 +3,7 @@ package org.oneframework.drivers;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.oneframework.config.AndroidPojo;
+import org.oneframework.config.AndroidDeviceModel;
 import org.oneframework.config.DeviceConfig;
 import org.oneframework.utils.FileUtility;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -11,13 +11,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.IOException;
 import java.net.URL;
 
-public class AndroidDriverBuilder {
+public class AndroidDriverBuilder extends DeviceConfig {
 
     AndroidDriver driver;
 
     public AndroidDriver setupDriver(String model) throws IOException {
         DesiredCapabilities androidCapabilities = new DesiredCapabilities();
-        AndroidPojo device = DeviceConfig.getAndroidDevice(model);
+        AndroidDeviceModel device = getAndroidDevice(model);
+        setPlatformModelName(model);
 
         androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
         androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, device.getPlatformName());

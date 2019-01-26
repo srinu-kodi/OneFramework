@@ -1,6 +1,6 @@
 package org.oneframework.config;
 
-public class AndroidPojo {
+public class AndroidDeviceModel {
     private String deviceName;
     private String platformName;
     private String platformVersion;
@@ -9,7 +9,7 @@ public class AndroidPojo {
     private String activity;
     private String app;
     private boolean reset;
-    private AndroidPojo nexus, pixel;
+    private AndroidDeviceModel nexus, pixel;
 
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
@@ -75,11 +75,11 @@ public class AndroidPojo {
         return reset;
     }
 
-    public AndroidPojo getNexus() {
+    public AndroidDeviceModel getNexus() {
         return nexus;
     }
 
-    public AndroidPojo getPixel() {
+    public AndroidDeviceModel getPixel() {
         return pixel;
     }
 

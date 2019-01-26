@@ -7,32 +7,41 @@ import org.oneframework.utils.FileUtility;
 import java.io.IOException;
 
 public class DeviceConfig {
-    public static IosPojo iosPojo;
-    public static AndroidPojo androidPojo;
+    public static org.oneframework.config.IOSDeviceModel IOSDeviceModel;
+    public static AndroidDeviceModel androidDeviceModel;
+    public static String platformModelName;
 
-    public static IosPojo getIOSDevice(String model) throws IOException {
+    public static synchronized String getPlatformModelName() {
+        return platformModelName;
+    }
+
+    public void setPlatformModelName(String platformModelName) {
+        this.platformModelName = platformModelName;
+    }
+
+    public static IOSDeviceModel getIOSDevice(String model) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        iosPojo = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("iosDevice.json").getAbsolutePath()), IosPojo.class);
+        IOSDeviceModel = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("iosDevice.json").getAbsolutePath()), IOSDeviceModel.class);
         if (model.equalsIgnoreCase(DeviceModel.IPHONE6.toString())) {
-            return iosPojo.getIphone6();
+            return IOSDeviceModel.getIphone6();
         } else if (model.equalsIgnoreCase(DeviceModel.IPHONE6S.toString())) {
-            return iosPojo.getIphone6s();
+            return IOSDeviceModel.getIphone6s();
         } else if (model.equalsIgnoreCase(DeviceModel.IPADAIR.toString())) {
-            return iosPojo.getIpadAir();
+            return IOSDeviceModel.getIpadAir();
         } else if (model.equalsIgnoreCase(DeviceModel.IPADAIR2.toString())) {
-            return iosPojo.getIpadAir2();
+            return IOSDeviceModel.getIpadAir2();
         } else {
             return null;
         }
     }
 
-    public static AndroidPojo getAndroidDevice(String model) throws IOException {
+    public static AndroidDeviceModel getAndroidDevice(String model) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        androidPojo = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("androidDevice.json").getAbsolutePath()), AndroidPojo.class);
+        androidDeviceModel = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("androidDevice.json").getAbsolutePath()), AndroidDeviceModel.class);
         if (model.equalsIgnoreCase(DeviceModel.NEXUS.toString())) {
-            return androidPojo.getNexus();
+            return androidDeviceModel.getNexus();
         } else if (model.equalsIgnoreCase(DeviceModel.PIXEL.toString())) {
-            return androidPojo.getPixel();
+            return androidDeviceModel.getPixel();
         } else {
             return null;
         }
