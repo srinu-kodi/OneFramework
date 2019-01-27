@@ -14,8 +14,10 @@ We often tend to create different test frameworks for different platforms and it
 * [Libraries Used](#libraries-used)
 * [Prerequisites Installations](#prerequisites-installations)
 * [Appium Setup](#appium-setup)
-* [How To This Framework Works](#how-this-framework-works)
+* [How This Framework Works](#how-this-framework-works)
 * [How To Run Tests](#how-to-run-tests)
+* [How To See Allure Result Report](#how-to-see-allure-result-report)
+* [Image Comparison Output](#image-comparison-output)
 * [Pending Tasks](#pending-tasks)
 * [How To Contribute?](#how-to-contribute)
 
@@ -114,13 +116,21 @@ $ allure serve <allure-results path>
 
 <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1546104798/allureReportDashboard.png" width="300"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1546104798/allureReportGraph.png" width="300"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1546104798/allureDetailExecutionReport.png" width="300" >
 
+## Image Comparison Output:
+
+Once image comparison is complete, all the images w.r.t platforms are published into local baselineImages directory at root level.
+Now go to specific directory and get the image comparison resulted images.
+
+difference image is created only when there is a difference in actual vs expected images. Below is the sample output.
+
+<img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1548599853/signupPage.png" width="300" alt="expectedImage"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1548599853/signupPage_actual.png" width="300" alt="actualImage"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1548599853/signupPage_diffImage.png" width="300" alt="differenceImage">
+
 ## Pending Tasks:
 
 1. Image masking on certain co-ordinates
-2. Proper logging at each step
-3. Parallel test execution
-4. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
-5. Recording of test execution
+2. Parallel test execution
+3. Integration with CI i.e. Jenkins (or) Travis (or) Circle CI (or) Go
+4. Recording of test execution
 
 Moreover I will incorporate if anything pops up in mind, going forward.<br>
 
