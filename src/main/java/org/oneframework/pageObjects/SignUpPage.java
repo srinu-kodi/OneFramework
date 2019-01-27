@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.HashMap;
 
+import static org.oneframework.logger.LoggingManager.logMessage;
+
 public class SignUpPage extends Page {
 
     WebDriver driver;
@@ -14,6 +16,8 @@ public class SignUpPage extends Page {
     public SignUpPage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        logMessage("Initializing the "+this.getClass().getSimpleName()+" elements");
+
         elePageTitle.put("android", new HashMap(){{put("id", "label");}});
         elePageTitle.put("ios", new HashMap(){{put("id", "Log in to WordPress.com using an email address to manage all your WordPress sites.");}});
         elePageTitle.put("web", new HashMap(){{put("xpath", "//div[@class='login__form-header']");}});

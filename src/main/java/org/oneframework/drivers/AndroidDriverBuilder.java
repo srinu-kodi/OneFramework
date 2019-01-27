@@ -11,6 +11,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.IOException;
 import java.net.URL;
 
+import static org.oneframework.logger.LoggingManager.logMessage;
+
 public class AndroidDriverBuilder extends DeviceConfig {
 
     AndroidDriver driver;
@@ -18,6 +20,7 @@ public class AndroidDriverBuilder extends DeviceConfig {
     public AndroidDriver setupDriver(String model) throws IOException {
         DesiredCapabilities androidCapabilities = new DesiredCapabilities();
         AndroidDeviceModel device = getAndroidDevice(model);
+        logMessage("Received the " + model + " device configuration for execution");
         setPlatformModelName(model);
 
         androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
@@ -29,6 +32,7 @@ public class AndroidDriverBuilder extends DeviceConfig {
         androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, device.getPackageName());
         androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, device.getActivity());
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), androidCapabilities);
+        logMessage("Android driver has been created for the " + model + " device");
         return driver;
     }
 }

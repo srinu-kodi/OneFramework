@@ -8,18 +8,19 @@ import org.testng.collections.Lists;
 import java.io.IOException;
 import java.util.List;
 
+import static org.oneframework.logger.LoggingManager.logMessage;
+
 public class TestRunner {
     public static void main(String[] args) throws IOException {
         TestNG testng = new TestNG();
 
         if (args.length == 0) {
-            System.out.println("Nothing is passed; Setting image capture to be true");
-            ImageComparator.COMPARE = false;
+            logMessage("Image Comparison arguments not passed; Capture is enabled by default");
         } else if (args[0].equalsIgnoreCase("compare")) {
-            System.out.println("Setting image compare to be true");
+            logMessage("Setting image compare as TRUE");
             ImageComparator.COMPARE = true;
         } else if (args[0].equalsIgnoreCase("capture")) {
-            System.out.println("Setting image capture to be true");
+            logMessage("Setting image capture as TRUE");
             ImageComparator.COMPARE = false;
         }
         List<String> suites = Lists.newArrayList();

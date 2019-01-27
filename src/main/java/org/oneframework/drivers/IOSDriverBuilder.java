@@ -10,6 +10,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.IOException;
 import java.net.URL;
 
+import static org.oneframework.logger.LoggingManager.logMessage;
+
 public class IOSDriverBuilder extends DeviceConfig {
 
     IOSDriver driver;
@@ -17,6 +19,7 @@ public class IOSDriverBuilder extends DeviceConfig {
     public IOSDriver setupDriver(String model) throws IOException {
         DesiredCapabilities iosCapabilities = new DesiredCapabilities();
         IOSDeviceModel device = getIOSDevice(model);
+        logMessage("Received the " + model + " device configuration for execution");
         setPlatformModelName(model);
 
         iosCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
@@ -27,6 +30,7 @@ public class IOSDriverBuilder extends DeviceConfig {
         iosCapabilities.setCapability(MobileCapabilityType.NO_RESET, device.isReset());
         iosCapabilities.setCapability(MobileCapabilityType.APP, FileUtility.getFile(device.getApp()).getAbsolutePath());
         driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
+        logMessage("IOS driver has been created for the " + model + " device");
         return driver;
     }
 }

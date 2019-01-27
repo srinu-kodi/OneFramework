@@ -7,6 +7,8 @@ import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import java.io.File;
 import java.io.IOException;
 
+import static org.oneframework.logger.LoggingManager.logMessage;
+
 public class AppiumServer {
 
     public static AppiumDriverLocalService appium;
@@ -17,9 +19,11 @@ public class AppiumServer {
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE);
         appium = builder.build();
         appium.start();
+        logMessage("Appium server has been started");
     }
 
     public static void stop() throws IOException {
         appium.stop();
+        logMessage("Appium server has been stopped");
     }
 }

@@ -8,7 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
+
+import static org.oneframework.logger.LoggingManager.logMessage;
 
 public class BaseTest {
     public WebDriver driver;
@@ -17,6 +18,7 @@ public class BaseTest {
     @BeforeTest
     public void startAppiumServer(String platformType, @Optional String platformName) throws IOException {
         if (platformType.equalsIgnoreCase("mobile")) {
+            killExistingAppiumProcess();
             if (AppiumServer.appium == null || !AppiumServer.appium.isRunning()) {
                 AppiumServer.start();
             }
@@ -51,7 +53,7 @@ public class BaseTest {
         }
     }
 
-    public void setupWebDriver(String platformName) throws MalformedURLException {
+    public void setupWebDriver(String platformName) throws IOException {
         if (platformName.equalsIgnoreCase("chrome")) {
             driver = new WebDriverBuilder().setupDriver("chrome");
         } else if (platformName.equalsIgnoreCase("firefox")) {
@@ -61,8 +63,13 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void teardownWebDriver() {
+    public void teardownDriver() {
         driver.quit();
+    }
+
+    private void killExistingAppiumProcess() throws IOException {
+        Runtime.getRuntime().exec("killall node");
+        logMessage("Killing existing appium process");
     }
 
 }

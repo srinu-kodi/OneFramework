@@ -4,6 +4,8 @@ import org.oneframework.helpers.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.oneframework.logger.LoggingManager.logMessage;
+
 import java.util.HashMap;
 
 public class HomePage extends Page {
@@ -17,6 +19,7 @@ public class HomePage extends Page {
     public HomePage(WebDriver driver) throws InterruptedException {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        logMessage("Initializing the "+this.getClass().getSimpleName()+" elements");
 
         eleSignInBtn.put("android", new HashMap(){{put("id", "login_button");}});
         eleSignInBtn.put("ios", new HashMap(){{put("xpath", "//XCUIElementTypeButton[contains(@label, 'Log In')]");}});
@@ -31,11 +34,13 @@ public class HomePage extends Page {
     public SignInPage chooseSignInOption() throws Exception {
         clickElement(driver,eleSignInBtn);
         new SignInPage(driver).clickOnSignInTitle();
+        logMessage("Chosen signIn option");
         return new SignInPage(driver);
     }
 
     public SignUpPage chooseSignUpOption() throws Exception {
         clickElement(driver,eleSignUpBtn);
+        logMessage("Chosen signUp option");
         return new SignUpPage(driver);
     }
 

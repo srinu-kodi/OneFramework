@@ -6,8 +6,10 @@ import org.oneframework.utils.FileUtility;
 
 import java.io.IOException;
 
+import static org.oneframework.logger.LoggingManager.logMessage;
+
 public class DeviceConfig {
-    public static org.oneframework.config.IOSDeviceModel IOSDeviceModel;
+    public static IOSDeviceModel IOSDeviceModel;
     public static AndroidDeviceModel androidDeviceModel;
     public static String platformModelName;
 
@@ -15,13 +17,14 @@ public class DeviceConfig {
         return platformModelName;
     }
 
-    public void setPlatformModelName(String platformModelName) {
+    public synchronized void setPlatformModelName(String platformModelName) {
         this.platformModelName = platformModelName;
     }
 
     public static IOSDeviceModel getIOSDevice(String model) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         IOSDeviceModel = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("iosDevice.json").getAbsolutePath()), IOSDeviceModel.class);
+        logMessage("IOS device config file iosDevice.json has been parsed");
         if (model.equalsIgnoreCase(DeviceModel.IPHONE6.toString())) {
             return IOSDeviceModel.getIphone6();
         } else if (model.equalsIgnoreCase(DeviceModel.IPHONE6S.toString())) {
@@ -38,6 +41,7 @@ public class DeviceConfig {
     public static AndroidDeviceModel getAndroidDevice(String model) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         androidDeviceModel = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("androidDevice.json").getAbsolutePath()), AndroidDeviceModel.class);
+        logMessage("Android device config file androidDevice.json has been parsed");
         if (model.equalsIgnoreCase(DeviceModel.NEXUS.toString())) {
             return androidDeviceModel.getNexus();
         } else if (model.equalsIgnoreCase(DeviceModel.PIXEL.toString())) {
