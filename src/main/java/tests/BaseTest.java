@@ -4,6 +4,8 @@ import org.oneframework.drivers.AndroidDriverBuilder;
 import org.oneframework.appium.AppiumServer;
 import org.oneframework.drivers.IOSDriverBuilder;
 import org.oneframework.drivers.WebDriverBuilder;
+import org.oneframework.enums.PlatformName;
+import org.oneframework.enums.PlatformType;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
@@ -17,7 +19,7 @@ public class BaseTest {
     @Parameters({"platformType", "platformName"})
     @BeforeTest
     public void startAppiumServer(String platformType, @Optional String platformName) throws IOException {
-        if (platformType.equalsIgnoreCase("mobile")) {
+        if (platformType.equalsIgnoreCase(PlatformType.MOBILE.toString())) {
             killExistingAppiumProcess();
             if (AppiumServer.appium == null || !AppiumServer.appium.isRunning()) {
                 AppiumServer.start();
@@ -28,7 +30,7 @@ public class BaseTest {
     @Parameters({"platformType", "platformName"})
     @AfterTest
     public void stopAppiumServer(String platformType, @Optional String platformName) throws IOException {
-        if (platformType.equalsIgnoreCase("mobile")) {
+        if (platformType.equalsIgnoreCase(PlatformType.MOBILE.toString())) {
             if (AppiumServer.appium != null || AppiumServer.appium.isRunning()) {
                 AppiumServer.stop();
             }
@@ -38,26 +40,26 @@ public class BaseTest {
     @Parameters({"platformType", "platformName", "model"})
     @BeforeMethod
     public void setupDriver(String platformType, String platformName, @Optional String model) throws IOException {
-        if (platformType.equalsIgnoreCase("web")) {
+        if (platformType.equalsIgnoreCase(PlatformType.WEB.toString())) {
             setupWebDriver(platformName);
-        } else if (platformType.equalsIgnoreCase("mobile")) {
+        } else if (platformType.equalsIgnoreCase(PlatformType.MOBILE.toString())) {
             setupMobileDriver(platformName, model);
         }
     }
 
     public void setupMobileDriver(String platformName, String model) throws IOException {
-        if (platformName.equalsIgnoreCase("android")) {
+        if (platformName.equalsIgnoreCase(PlatformName.ANDROID.toString())) {
             driver = new AndroidDriverBuilder().setupDriver(model);
-        } else if (platformName.equalsIgnoreCase("iphone")) {
+        } else if (platformName.equalsIgnoreCase(PlatformName.IOS.toString())) {
             driver = new IOSDriverBuilder().setupDriver(model);
         }
     }
 
     public void setupWebDriver(String platformName) throws IOException {
-        if (platformName.equalsIgnoreCase("chrome")) {
-            driver = new WebDriverBuilder().setupDriver("chrome");
-        } else if (platformName.equalsIgnoreCase("firefox")) {
-            driver = new WebDriverBuilder().setupDriver("firefox");
+        if (platformName.equalsIgnoreCase(PlatformName.CHROME.toString())) {
+            driver = new WebDriverBuilder().setupDriver(platformName);
+        } else if (platformName.equalsIgnoreCase(PlatformName.FIREFOX.toString())) {
+            driver = new WebDriverBuilder().setupDriver(platformName);
         }
         driver.get("https://www.wordpress.com");
     }

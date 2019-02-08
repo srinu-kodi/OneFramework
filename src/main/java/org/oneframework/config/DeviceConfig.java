@@ -2,6 +2,7 @@ package org.oneframework.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
+import org.oneframework.enums.DeviceModel;
 import org.oneframework.utils.FileUtility;
 
 import java.io.IOException;

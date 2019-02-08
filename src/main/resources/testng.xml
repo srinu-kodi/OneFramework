@@ -29,7 +29,7 @@
 
     <!--<test name="E2E Test Suite On iOS - iPhone6S">-->
         <!--<parameter name="platformType" value="mobile"/>-->
-        <!--<parameter name="platformName" value="iphone"/>-->
+        <!--<parameter name="platformName" value="ios"/>-->
         <!--<parameter name="model" value="iphone6s"/>-->
         <!--<classes>-->
             <!--<class name="tests.HomePageTest"/>-->
