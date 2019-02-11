@@ -1,12 +1,9 @@
 # `OneFramework`
-This is a generic Page Object Model which will fit for both Mobile & Web platforms.
-This will serve the benefits to both native android, ios and web platforms with single framework.
+<b>`If you've application in android, ios & web platforms and want to automate with single code base? This framework is for you.`</b><br><br>
+This is a generic Page Object Model which solves all your automation needs with single codebase.<br>
+We often tend to create different test frameworks for different platforms and it's very difficult for anyone to serve all platform needs in one test automation framework.<br>
 
-We often tend to create different test frameworks for different platforms and it is very difficult for anyone to serve all platform needs in one test automation framework.
-
-<b>`If you want to to automate the same application on android, ios & web platforms and you want single code base to handle the automation? This framework is for you.`</b>
-
-<b>`FYI: I have taken WordPress app which is available on all platforms for automation.`</b>
+<b>`OneFramework solves all your needs. You just give the locator and leave the rest to OneFramework.`</b><br>
 
 ## Contents:
 
@@ -23,12 +20,14 @@ We often tend to create different test frameworks for different platforms and it
 
 ## Features:
 
+* Easy to automate any type of application 
 * Cross platform(mobile & web) support with single codebase
 * Page Object Model
 * TestNG integration
 * Image Comparison
 * Allure Reporting
 * Robust in nature
+* Many configurations
 
 ## Libraries Used:
 
@@ -43,43 +42,36 @@ We often tend to create different test frameworks for different platforms and it
 
 ## Prerequisites Installations:
 
-1. `JAVA 1.8`<br>
-    Install Java and set the JAVA_HOME path on your machine.
-2. `Node & NPM`<br>
-    Download Node from `https://nodejs.org/en/download/` and install it on your machine.
-3. `Gradle`<br>
-    Install gradle
-4.  `Android`<br>
-    Install Android Studio & set the android environment properly which includes<br>
+1. <b>`JAVA 1.8`</b> - Install Java and set the JAVA_HOME path on your machine.
+2. <b>`Node & NPM`</b> - Download & install node from `https://nodejs.org/en/download/`.
+3. <b>`Gradle`</b> - Install Gradle.
+4. <b>`Android`</b> - Install Android Studio & set <i><b>ANDROID_HOME</b></i> path.<br>
     -  Downloading the Android SDK
     -  Download the Android SDK tools such as 
        1. Build tools
        2. Platform tools
        3. Android Emulator
        4. Intel HAXM installer etc.....
-5.  `iOS`<br>
-    Install XCode on your machine and download required iPhone/iPad simulators
-6.  `Allure Report`<br>
-    Install Allure Report library on your machine. Please follow below link to install
+       5. Create an emulator device from AVD manager   
+5. <b>`iOS`</b> - Install XCode on your machine & download required iPhone/iPad simulators.<br>
+6. <b>`Allure Report`</b> - Install Allure Report library on your machine. Please follow below link to install it on MAC.<br>
+    Similarly install allure-report installer on your respective machine.
     https://docs.qameta.io/allure/#_installing_a_commandline
+    
+<b>`Note: If you want to run only on WEB, you don't need anything except JAVA.`</b><br>
+<b>`Mentioned installations Node, Android & iOS are for mobile app automation & Rest like Gradle & Allure are for framework level`</b> 
 
 ## Appium Setup:
 
-- Once Node is installed, install appium using below command.<br>
-<b>`Note: Since Appium is a node server, so you need appium(node package) installed on your machine and below is the command for the same.`</b>
+- <b>`Install Appium`</b> 
 ``` 
  $ sudo npm install -g appium@1.9.1 --unsafe-perm=true --allow-root 
 ```
-- Install <b>`appium-doctor`</b> which is used to see if appium setup is correctly done or not. Below is the command for the same.<br>
+- <b>`Appium Doctor`</b> - which is used to see if the appium setup is correctly done or not. Run it and fix the issues as per that.<br>
 ``` 
  $ sudo npm install -g appium-doctor --unsafe-perm=true --allow-root
+ $ appium-doctor
 ```
-- Run <b>`appium-doctor`</b> and fix the issues in setup<br>
-```
-$ appium-doctor
-```
- 
-<b>`Note: You may ignore "Bin directory for $JAVA_HOME is not set" error, if it shows up. But except this everything should OKAY`</b>
 
 ## How This Framework Works:
 
@@ -88,28 +80,29 @@ We have "testng.xml" file which has tests for each and every platform in cross b
  
 ###### Here are the minimal things you have to do:
  
- - Create your tests 
- - Create Page Object classes with your Application page names (I already created some org.oneframework.pageObjects, you can take the reference)
- - Page Object locators (You need to follow this framework notation when defining the locators for each platform)
- - Set Android driver details (Like API version, emulator name, APK path etc...) in Android Builder
- - Set iPhone/iPad driver details (Like OS version, simulator name, UDID, App path etc...) in iPhone Builder
- - You need to set your android, iphone emulator/simulator details in respective builder files
- - Set web app URL
+ - Create your tests
+ - Create your Page Object class w.r.t test that you have written, if not created already (Take the reference from <b>org.oneframework.pageObjects</b>).<br>
+ For e.g, SignIn button locators for web, ios & android set as shown below.<br>
+ <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1549902815/pageObjectLocator.png" width="500" height="35"> 
+ - If mobile app, Set the android, ios device details in corresponding files in resources directory as shown below.<br>
+ <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1549904075/Pixel.png" width="350"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1549904074/iPhone6S.png" width="350">
+ - If web app, Set web app URL in BaseTest
  
 ## How To Run Tests:
 
-- Clone the repo using below command & open<br>
-    `https://github.com/srinu-kodi/OneFramework.git`
-
+1. Clone the repo.<br>
+    `https://github.com/srinu-kodi/OneFramework.git`<br>
+2. Build the JAR and run it.<br> 
 ```
 $ gradle clean build
 $ java -jar build/libs/Automation-1.0-SNAPSHOT.jar capture
 $ java -jar build/libs/Automation-1.0-SNAPSHOT.jar compare
 ```
-Once test execution is complete, allure-results directory gets generated.
+<b>`Note:`</b>`capture & compare are the image capture and compare modes.`</b>
+
 ## How To See Allure Result Report:
 
-I assume you have already installed allure on your machine. If not, install it. If yes, run below command to see the report.
+Once test execution is complete, allure-results directory gets generated. I assume you have already installed allure on your machine. If not, install it. If yes, run below command to see the report.
 ```
 $ allure serve <allure-results path>
 ```

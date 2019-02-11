@@ -21,7 +21,7 @@ public class AndroidDriverBuilder extends DeviceConfig {
         DesiredCapabilities androidCapabilities = new DesiredCapabilities();
         AndroidDeviceModel device = getAndroidDevice(model);
         logMessage("Received the " + model + " device configuration for execution");
-        setPlatformModelName(model);
+        setExecutionPlatform(model);
 
         androidCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
         androidCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, device.getPlatformName());

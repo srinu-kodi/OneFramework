@@ -24,7 +24,7 @@ public class ImageComparator extends DeviceConfig {
 
     public ImageComparator(WebDriver driver) {
         this.driver = driver;
-        baselineImageDirFullPath = "baselineImages/" + getPlatformModelName() + "/";
+        baselineImageDirFullPath = "baselineImages/" + getExecutionPlatform() + "/";
     }
 
     private BufferedImage getBaselineImage(String imageName) throws IOException {

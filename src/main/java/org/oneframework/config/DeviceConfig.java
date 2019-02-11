@@ -12,14 +12,14 @@ import static org.oneframework.logger.LoggingManager.logMessage;
 public class DeviceConfig {
     public static IOSDeviceModel IOSDeviceModel;
     public static AndroidDeviceModel androidDeviceModel;
-    public static String platformModelName;
+    public static String executionPlatform;
 
-    public static synchronized String getPlatformModelName() {
-        return platformModelName;
+    public static synchronized String getExecutionPlatform() {
+        return executionPlatform;
     }
 
-    public synchronized void setPlatformModelName(String platformModelName) {
-        this.platformModelName = platformModelName;
+    public synchronized void setExecutionPlatform(String executionPlatform) {
+        this.executionPlatform = executionPlatform;
     }
 
     public static IOSDeviceModel getIOSDevice(String model) throws IOException {

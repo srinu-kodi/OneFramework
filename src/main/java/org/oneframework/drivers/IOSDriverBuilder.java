@@ -20,7 +20,7 @@ public class IOSDriverBuilder extends DeviceConfig {
         DesiredCapabilities iosCapabilities = new DesiredCapabilities();
         IOSDeviceModel device = getIOSDevice(model);
         logMessage("Received the " + model + " device configuration for execution");
-        setPlatformModelName(model);
+        setExecutionPlatform(model);
 
         iosCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device.getDeviceName());
         iosCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, device.getPlatformName());

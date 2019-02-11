@@ -23,6 +23,7 @@ public class BaseTest {
             killExistingAppiumProcess();
             if (AppiumServer.appium == null || !AppiumServer.appium.isRunning()) {
                 AppiumServer.start();
+                logMessage("Appium server has been started");
             }
         }
     }
@@ -33,6 +34,7 @@ public class BaseTest {
         if (platformType.equalsIgnoreCase(PlatformType.MOBILE.toString())) {
             if (AppiumServer.appium != null || AppiumServer.appium.isRunning()) {
                 AppiumServer.stop();
+                logMessage("Appium server has been stopped");
             }
         }
     }
@@ -53,20 +55,23 @@ public class BaseTest {
         } else if (platformName.equalsIgnoreCase(PlatformName.IOS.toString())) {
             driver = new IOSDriverBuilder().setupDriver(model);
         }
+        logMessage(model + " driver has been created for execution");
     }
 
-    public void setupWebDriver(String platformName) throws IOException {
+    public void setupWebDriver(String platformName) {
         if (platformName.equalsIgnoreCase(PlatformName.CHROME.toString())) {
             driver = new WebDriverBuilder().setupDriver(platformName);
         } else if (platformName.equalsIgnoreCase(PlatformName.FIREFOX.toString())) {
             driver = new WebDriverBuilder().setupDriver(platformName);
         }
+        logMessage(platformName + " driver has been created for execution");
         driver.get("https://www.wordpress.com");
     }
 
     @AfterMethod
     public void teardownDriver() {
         driver.quit();
+        logMessage("Driver has been quit from execution");
     }
 
     private void killExistingAppiumProcess() throws IOException {
