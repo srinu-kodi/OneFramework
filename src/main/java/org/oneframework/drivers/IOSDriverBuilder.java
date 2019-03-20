@@ -18,7 +18,7 @@ public class IOSDriverBuilder extends DeviceConfig {
 
     public IOSDriver setupDriver(String model) throws IOException {
         DesiredCapabilities iosCapabilities = new DesiredCapabilities();
-        IOSDeviceModel device = getIOSDevice(model);
+        IOSDeviceModel device = readIOSDeviceConfig().getIOSDeviceByName(model);
         logMessage("Received the " + model + " device configuration for execution");
         setExecutionPlatform(model);
 

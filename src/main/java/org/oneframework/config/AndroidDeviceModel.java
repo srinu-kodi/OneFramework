@@ -1,5 +1,7 @@
 package org.oneframework.config;
 
+import java.util.Arrays;
+
 public class AndroidDeviceModel {
     private String deviceName;
     private String platformName;
@@ -8,8 +10,27 @@ public class AndroidDeviceModel {
     private String packageName;
     private String activity;
     private String app;
+    private String name;
     private boolean reset;
-    private AndroidDeviceModel nexus, pixel;
+    private AndroidDeviceModel[] androidDeviceModels;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public AndroidDeviceModel(AndroidDeviceModel[] androidDeviceModels) {
+        this.androidDeviceModels = androidDeviceModels;
+    }
+
+    public AndroidDeviceModel() {}
+
+    public AndroidDeviceModel getAndroidDeviceByName(String deviceName) {
+        return Arrays.stream(androidDeviceModels).filter(androidDeviceModel -> androidDeviceModel.getName().equalsIgnoreCase(deviceName)).findFirst().get();
+    }
 
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
@@ -73,14 +94,6 @@ public class AndroidDeviceModel {
 
     public boolean isReset() {
         return reset;
-    }
-
-    public AndroidDeviceModel getNexus() {
-        return nexus;
-    }
-
-    public AndroidDeviceModel getPixel() {
-        return pixel;
     }
 
 }

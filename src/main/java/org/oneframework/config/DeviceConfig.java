@@ -2,16 +2,12 @@ package org.oneframework.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
-import org.oneframework.enums.DeviceModel;
 import org.oneframework.utils.FileUtility;
 
 import java.io.IOException;
-
-import static org.oneframework.logger.LoggingManager.logMessage;
+import java.nio.file.Files;
 
 public class DeviceConfig {
-    public static IOSDeviceModel IOSDeviceModel;
-    public static AndroidDeviceModel androidDeviceModel;
     public static String executionPlatform;
 
     public static synchronized String getExecutionPlatform() {
@@ -22,33 +18,19 @@ public class DeviceConfig {
         this.executionPlatform = executionPlatform;
     }
 
-    public static IOSDeviceModel getIOSDevice(String model) throws IOException {
+    public static IOSDeviceModel readIOSDeviceConfig() throws IOException {
+        byte[] jsonData = null;
         ObjectMapper objectMapper = new ObjectMapper();
-        IOSDeviceModel = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("iosDevice.json").getAbsolutePath()), IOSDeviceModel.class);
-        logMessage("IOS device config file iosDevice.json has been parsed");
-        if (model.equalsIgnoreCase(DeviceModel.IPHONE6.toString())) {
-            return IOSDeviceModel.getIphone6();
-        } else if (model.equalsIgnoreCase(DeviceModel.IPHONE6S.toString())) {
-            return IOSDeviceModel.getIphone6s();
-        } else if (model.equalsIgnoreCase(DeviceModel.IPADAIR.toString())) {
-            return IOSDeviceModel.getIpadAir();
-        } else if (model.equalsIgnoreCase(DeviceModel.IPADAIR2.toString())) {
-            return IOSDeviceModel.getIpadAir2();
-        } else {
-            return null;
-        }
+        jsonData = Files.readAllBytes(FileUtils.getFile(FileUtility.getFile("iosDevice.json")).toPath());
+        IOSDeviceModel[] iosDeviceModels = objectMapper.readValue(jsonData, IOSDeviceModel[].class);
+        return new IOSDeviceModel(iosDeviceModels);
     }
 
-    public static AndroidDeviceModel getAndroidDevice(String model) throws IOException {
+    public static AndroidDeviceModel readAndroidDeviceConfig() throws IOException {
+        byte[] jsonData = null;
         ObjectMapper objectMapper = new ObjectMapper();
-        androidDeviceModel = objectMapper.readValue(FileUtils.getFile(FileUtility.getFile("androidDevice.json").getAbsolutePath()), AndroidDeviceModel.class);
-        logMessage("Android device config file androidDevice.json has been parsed");
-        if (model.equalsIgnoreCase(DeviceModel.NEXUS.toString())) {
-            return androidDeviceModel.getNexus();
-        } else if (model.equalsIgnoreCase(DeviceModel.PIXEL.toString())) {
-            return androidDeviceModel.getPixel();
-        } else {
-            return null;
-        }
+        jsonData = Files.readAllBytes(FileUtils.getFile(FileUtility.getFile("androidDevice.json")).toPath());
+        AndroidDeviceModel[] androidDeviceModels = objectMapper.readValue(jsonData, AndroidDeviceModel[].class);
+        return new AndroidDeviceModel(androidDeviceModels);
     }
 }

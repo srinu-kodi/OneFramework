@@ -1,5 +1,7 @@
 package org.oneframework.config;
 
+import java.util.Arrays;
+
 public class IOSDeviceModel {
     private String deviceName;
     private String platformName;
@@ -8,7 +10,26 @@ public class IOSDeviceModel {
     private String udid;
     private String app;
     private boolean reset;
-    private IOSDeviceModel iphone6s, iphone6, ipadAir, ipadAir2;
+    private String name;
+    private IOSDeviceModel[] iosDeviceModels;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public IOSDeviceModel() {}
+
+    public IOSDeviceModel(IOSDeviceModel[] iosDeviceModels) {
+        this.iosDeviceModels = iosDeviceModels;
+    }
+
+    public IOSDeviceModel getIOSDeviceByName(String deviceName) {
+        return Arrays.stream(iosDeviceModels).filter(iosDeviceModel -> iosDeviceModel.getName().equalsIgnoreCase(deviceName)).findFirst().get();
+    }
 
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
@@ -64,22 +85,6 @@ public class IOSDeviceModel {
 
     public boolean isReset() {
         return reset;
-    }
-
-    public IOSDeviceModel getIphone6s() {
-        return iphone6s;
-    }
-
-    public IOSDeviceModel getIphone6() {
-        return iphone6;
-    }
-
-    public IOSDeviceModel getIpadAir() {
-        return ipadAir;
-    }
-
-    public IOSDeviceModel getIpadAir2() {
-        return ipadAir2;
     }
 
 }

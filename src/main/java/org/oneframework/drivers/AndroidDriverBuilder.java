@@ -19,7 +19,7 @@ public class AndroidDriverBuilder extends DeviceConfig {
 
     public AndroidDriver setupDriver(String model) throws IOException {
         DesiredCapabilities androidCapabilities = new DesiredCapabilities();
-        AndroidDeviceModel device = getAndroidDevice(model);
+        AndroidDeviceModel device = readAndroidDeviceConfig().getAndroidDeviceByName(model);
         logMessage("Received the " + model + " device configuration for execution");
         setExecutionPlatform(model);
 
