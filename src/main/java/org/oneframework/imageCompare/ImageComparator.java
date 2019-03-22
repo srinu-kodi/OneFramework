@@ -7,8 +7,12 @@ import org.oneframework.config.DeviceConfig;
 import org.oneframework.utils.FileUtility;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.comparison.ImageDiff;
 import ru.yandex.qatools.ashot.comparison.ImageDiffer;
+import ru.yandex.qatools.ashot.shooting.CuttingDecorator;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import ru.yandex.qatools.ashot.shooting.cutter.CutStrategy;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -36,6 +40,7 @@ public class ImageComparator extends DeviceConfig {
     }
 
     private BufferedImage captureActualImage(String imageName) throws IOException {
+        DeviceViewportModel viewport = DeviceConfig.readDeviceViewportConfig().getDeviceViewport(executionPlatform);
         File imageFile;
         if (ImageComparator.COMPARE) {
             imageFile = new File(imageName + "_actual.png");
@@ -44,10 +49,8 @@ public class ImageComparator extends DeviceConfig {
         }
 
         BufferedImage image = new AShot().takeScreenshot(driver).getImage();
-        if (driver instanceof IOSDriver) {
-            image = image.getSubimage(0, 48, 740, 1280);
-        } else if (driver instanceof AndroidDriver) {
-            image = image.getSubimage(0, 64, 1080, 1728);
+        if (driver instanceof IOSDriver || driver instanceof AndroidDriver) {
+            image = image.getSubimage(viewport.getX(), viewport.getY(), viewport.getWidth(), viewport.getHeight());
         }
         ImageIO.write(image, "png", imageFile);
         FileUtility.copyFileToDirectory(imageFile, new File(baselineImageDirFullPath));
