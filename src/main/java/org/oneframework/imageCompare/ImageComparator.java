@@ -40,7 +40,6 @@ public class ImageComparator extends DeviceConfig {
     }
 
     private BufferedImage captureActualImage(String imageName) throws IOException {
-        DeviceViewportModel viewport = DeviceConfig.readDeviceViewportConfig().getDeviceViewport(executionPlatform);
         File imageFile;
         if (ImageComparator.COMPARE) {
             imageFile = new File(imageName + "_actual.png");
@@ -50,6 +49,7 @@ public class ImageComparator extends DeviceConfig {
 
         BufferedImage image = new AShot().takeScreenshot(driver).getImage();
         if (driver instanceof IOSDriver || driver instanceof AndroidDriver) {
+            DeviceViewportModel viewport = DeviceConfig.readDeviceViewportConfig().getDeviceViewport(executionPlatform);
             image = image.getSubimage(viewport.getX(), viewport.getY(), viewport.getWidth(), viewport.getHeight());
         }
         ImageIO.write(image, "png", imageFile);
