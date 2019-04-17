@@ -21,6 +21,13 @@ testng.xml
 androidDevice.json
 !src/main/resources/androidDevice.json
 iosDevice.json
+!src/main/resources/deviceViewport.json
+deviceViewport.json
 !src/main/resources/iosDevice.json
 baselineImages/
 !src/main/resources/baselineImages/
+.DS_Store
+.classpath
+.project
+.settings/
+bin/

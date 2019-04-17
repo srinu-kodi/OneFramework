@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class WebDriverBuilder extends DeviceConfig {
 
     WebDriver driver;
@@ -19,6 +21,7 @@ public class WebDriverBuilder extends DeviceConfig {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         setExecutionPlatform(platformName);
         return driver;
     }

@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import static org.oneframework.logger.LoggingManager.logMessage;
 
@@ -30,6 +31,7 @@ public class IOSDriverBuilder extends DeviceConfig {
         iosCapabilities.setCapability(MobileCapabilityType.NO_RESET, device.isReset());
         iosCapabilities.setCapability(MobileCapabilityType.APP, FileUtility.getFile(device.getApp()).getAbsolutePath());
         driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), iosCapabilities);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         logMessage("IOS driver has been created for the " + model + " device");
         return driver;
     }

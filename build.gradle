@@ -17,7 +17,7 @@ repositories {
 dependencies {
     compile group: 'io.appium', name: 'java-client', version: '6.0.0'
     compile group: 'org.testng', name: 'testng', version: '6.9.10'
-    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '2.2.5'
+    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '3.3.0'
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile 'ru.yandex.qatools.ashot:ashot:1.5.2'
     compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.8.1'

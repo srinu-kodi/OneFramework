@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import static org.oneframework.logger.LoggingManager.logMessage;
 
@@ -32,6 +33,7 @@ public class AndroidDriverBuilder extends DeviceConfig {
         androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, device.getPackageName());
         androidCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, device.getActivity());
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), androidCapabilities);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         logMessage("Android driver has been created for the " + model + " device");
         return driver;
     }
