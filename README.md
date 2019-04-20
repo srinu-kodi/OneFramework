@@ -83,7 +83,7 @@ We have "testng.xml" file which has tests for each and every platform in cross b
  - Create your tests
  - Create your Page Object class w.r.t test that you have written, if not created already (Take the reference from <b>org.oneframework.pageObjects</b>).<br>
  For e.g, SignIn button locators for web, ios & android set as shown below.<br>
- <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1549902815/pageObjectLocator.png" width="500" height="35"> 
+ <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1552327264/Platform_Locator.png" width="400"> 
  - If mobile app, Set the android, ios device details in corresponding files in resources directory as shown below.<br>
  <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1549904075/Pixel.png" width="350"> <img src="https://res.cloudinary.com/dxeolpmip/image/upload/v1549904074/iPhone6S.png" width="350">
  - If web app, Set web app URL in BaseTest
