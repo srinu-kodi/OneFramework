@@ -24,6 +24,7 @@ import static org.oneframework.logger.LoggingManager.logMessage;
 public class ImageComparator extends DeviceConfig {
     WebDriver driver;
     public static boolean COMPARE = false;
+    public static String MODE;
     String baselineImageDirFullPath;
 
     public ImageComparator(WebDriver driver) {
@@ -69,21 +70,23 @@ public class ImageComparator extends DeviceConfig {
     }
 
     public boolean compare(String imageName) throws IOException {
-        BufferedImage actualImage, expectedImage;
-        ImageDiff diffImage;
-        boolean imageMatchFlag = false;
-        if (!ImageComparator.COMPARE) {
-            captureActualImage(imageName);
-            imageMatchFlag = true;
-        } else {
-            expectedImage = getBaselineImage(imageName);
-            actualImage = captureActualImage(imageName);
-            diffImage = new ImageDiffer().makeDiff(expectedImage, actualImage);
-            logMessage("Comparing the expected baseline image with actual image");
-            if (diffImage.getDiffSize() > 0) {
-                createDiffImageAs(diffImage, imageName);
+        boolean imageMatchFlag = true;
+        if (MODE.equalsIgnoreCase("visual")) {
+            BufferedImage actualImage, expectedImage;
+            ImageDiff diffImage;
+            if (!ImageComparator.COMPARE) {
+                captureActualImage(imageName);
             } else {
-                imageMatchFlag = true;
+                expectedImage = getBaselineImage(imageName);
+                actualImage = captureActualImage(imageName);
+                diffImage = new ImageDiffer().makeDiff(expectedImage, actualImage);
+                logMessage("Comparing the expected baseline image with actual image");
+                if (diffImage.getDiffSize() > 0) {
+                    createDiffImageAs(diffImage, imageName);
+                    imageMatchFlag = false;
+                } else {
+                    imageMatchFlag = true;
+                }
             }
         }
         return imageMatchFlag;
